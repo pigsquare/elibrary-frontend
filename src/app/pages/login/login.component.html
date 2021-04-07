@@ -1,0 +1,19 @@
+<p class="mat-h3">登录系统</p>
+<div class="mat-body">
+  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+    <mat-form-field>
+      <mat-label>用户名</mat-label>
+      <input #username formControlName="username" matInput type="text">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>密码</mat-label>
+      <input #password formControlName="password" matInput type="password">
+    </mat-form-field>
+
+    <div class="form__submit-container">
+      <button [disabled]="!loginForm.valid" color="primary" mat-raised-button>登录</button>
+    </div>
+  </form>
+</div>
+
