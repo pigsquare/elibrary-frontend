@@ -61,14 +61,11 @@ export class HeaderComponent implements OnInit {
 
   navToIndex(): void{
     let url = '';
-    if (window.localStorage.getItem('user_role') === 'ROLE_T') {
+    if (window.localStorage.getItem('user_role') === 'ROLE_READER') {
+      url = '/r';
+    }
+    if (window.localStorage.getItem('user_role') === 'ROLE_STUFF') {
       url = '/t';
-    }
-    if (window.localStorage.getItem('user_role') === 'ROLE_S') {
-      url = '/s';
-    }
-    if (window.localStorage.getItem('user_role') === 'ROLE_A') {
-      url = '/admin';
     }
     this.router.navigateByUrl(url).then();
   }
