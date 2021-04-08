@@ -2,7 +2,7 @@
 <div class="mat-body">
   <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
     <mat-form-field>
-      <mat-label>用户名</mat-label>
+      <mat-label>用户名/邮箱/手机号码</mat-label>
       <input #username formControlName="username" matInput type="text">
     </mat-form-field>
     <br>
@@ -15,5 +15,10 @@
       <button [disabled]="!loginForm.valid" color="primary" mat-raised-button>登录</button>
     </div>
   </form>
+  <div class="aside-card__inner">
+    <span>没有账号？</span>
+    <a color="accent" mat-stroked-button routerLink="/signup">立即注册</a>
+  </div>
+
 </div>
 
