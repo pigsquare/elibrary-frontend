@@ -50,7 +50,7 @@ export class HeaderComponent implements OnInit {
       if (r){
         this.changePasswordService.changeP(r).subscribe(r1 => {
             console.log(r1);
-            this.snackBar.open(r1.res, undefined, {duration: 2000});
+            this.snackBar.open(r1.message, undefined, {duration: 2000});
           },
           () => {
             this.snackBar.open('修改密码失败', undefined, {duration: 2000});
