@@ -11,6 +11,6 @@ export class ChangePasswordService {
 
   constructor(private http: HttpClient) { }
   changeP(request: ChangePasswordRequest): Observable<CommonResponse>{
-    return this.http.post<CommonResponse>('/api/user/change/password', request);
+    return this.http.post<CommonResponse>('/api/user/password/change', request);
   }
 }
