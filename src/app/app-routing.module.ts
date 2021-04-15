@@ -5,8 +5,8 @@ import {SignupComponent} from './pages/signup/signup.component';
 import {HomepageComponent} from './pages/homepage/homepage.component';
 import {ReaderHomeComponent} from './pages/reader-home/reader-home.component';
 import {ReaderGuard} from './guard/reader.guard';
-import {StaffHomeComponent} from "./pages/staff-home/staff-home.component";
-import {StaffGuard} from "./guard/staff.guard";
+import {StaffHomeComponent} from './pages/staff-home/staff-home.component';
+import {StaffGuard} from './guard/staff.guard';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -16,7 +16,7 @@ const routes: Routes = [
     ]},
   {path: 'staff', component: StaffHomeComponent,
   canActivate: [ReaderGuard, StaffGuard], canActivateChild: [ReaderGuard, StaffGuard], children: [
-      {path: ''}
+      {path: '', component: HomepageComponent},
     ]
     },
   {path: '', component: HomepageComponent}
