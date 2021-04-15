@@ -1,6 +1,29 @@
-<p class="mat-h2">欢迎使用选课管理系统！</p>
-<br>
 <div class="mat-h3">
   <button mat-raised-button (click)="navToIndex()">进入系统</button>&nbsp;
   <button mat-raised-button color="primary" (click)="navToLogin()">登录</button>
 </div>
+<p class="mat-h2">欢迎使用选课管理系统！</p>
+<br>
+<!--
+<div>
+  <img src="C:\Users\LENOVO\Desktop\图书馆.jpg" width="118" height="165" alt="图书馆">
+</div>
+<mat-form-field class="searchButton">
+  <button mat-raised-button color="primary" >搜索</button>
+</mat-form-field>
+-->
+
+<div class="search-container">
+  <div class="search-container-box">
+    <mat-form-field class="search-container-box-input">
+      <input matInput type="text" [(ngModel)]="value">
+      <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Search" >
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+</div>
+
+
+

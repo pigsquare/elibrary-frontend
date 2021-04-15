@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
 export class HomepageComponent implements OnInit {
 
   constructor(private router: Router) { }
-
+  value = 'search';
   ngOnInit(): void {
   }
   navToIndex(): void{
@@ -30,3 +30,5 @@ export class HomepageComponent implements OnInit {
   }
 
 }
+
+
