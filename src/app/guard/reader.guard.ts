@@ -21,6 +21,7 @@ export class ReaderGuard implements CanActivate, CanActivateChild {
         // 获取新token
       console.log('refresh token');
       this.authService.refreshToken(window.localStorage.getItem('token')).subscribe((data) => {
+        AuthService.saveToken(data.token);
         AuthService.saveUser(data);
       });
     }
