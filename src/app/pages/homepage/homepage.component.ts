@@ -24,21 +24,14 @@ export class HomepageComponent implements OnInit {
   ngOnInit(): void {
   }
   navToIndex(): void{
-    let url = '/login';
-    if (window.localStorage.getItem('user_role') === 'ROLE_T') {
-      url = '/t';
-    }
-    if (window.localStorage.getItem('user_role') === 'ROLE_S') {
-      url = '/s';
-    }
+    let tarUrl = '/login';
     if (window.localStorage.getItem('user_role') === 'ROLE_A') {
-      url = '/admin';
+      tarUrl = '/admin';
     }
-    this.router.navigateByUrl(url).then();
+    this.router.navigateByUrl(tarUrl).then();
   }
   navToLogin(): void{
     this.router.navigateByUrl('/login').then();
   }
 }
-
 
