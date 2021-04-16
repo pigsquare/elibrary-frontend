@@ -39,4 +39,7 @@ export class AuthService {
     console.log('Trying logging in: ' + authTokenRequest);
     return this.http.post<AuthTokenResponse>('/api/auth/login', authTokenRequest);
   }
+  refreshToken(token: string): Observable<AuthTokenResponse>{
+    return this.http.get<AuthTokenResponse>('/api/auth/refresh/' + token);
+  }
 }

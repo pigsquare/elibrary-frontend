@@ -52,9 +52,9 @@ export class LoginComponent implements OnInit {
                   .then(r => this.snackBar.open('Teacher logged in.', undefined, {duration: 2000}));
                 break;
               }
-              case 'ROLE_A': {
-                this.router.navigateByUrl('/admin')
-                  .then(r => this.snackBar.open('Admin logged in.', undefined, {duration: 2000}));
+              case 'ROLE_READER': {
+                this.router.navigateByUrl('/reader')
+                  .then(r => this.snackBar.open('Reader logged in.', undefined, {duration: 2000}));
                 break;
               }
             }
