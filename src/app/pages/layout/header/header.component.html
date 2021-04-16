@@ -4,8 +4,10 @@
       <mat-toolbar-row>
         <span routerLink="/">XXX图书馆</span>
         <span class="example-spacer"></span>
-        <span class="mat-small">
-          {{user && user.id}} {{user && user.username}}
+          <a *ngIf="user.id==null" routerLink="/login" color="primary" mat-flat-button>登录</a>&nbsp;&nbsp;
+          <a *ngIf="user.id==null" routerLink="/signup" color="primary" mat-flat-button>注册</a>
+        <span *ngIf="user.id!=null" class="mat-small">
+          欢迎 {{user && user.username}}
           <button *ngIf="user.id!=null" mat-icon-button [mat-menu-trigger-for]="menu">
           <mat-icon>more_vert</mat-icon>
         </button>
