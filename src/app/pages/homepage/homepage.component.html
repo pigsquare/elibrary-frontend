@@ -4,14 +4,10 @@
 </div>
 <p class="mat-h2">欢迎使用选课管理系统！</p>
 <br>
-<!--
-<div>
-  <img src="C:\Users\LENOVO\Desktop\图书馆.jpg" width="118" height="165" alt="图书馆">
+
+<div class="logo">
+  <img src="./assets/images/library.png"/>
 </div>
-<mat-form-field class="searchButton">
-  <button mat-raised-button color="primary" >搜索</button>
-</mat-form-field>
--->
 
 <div class="search-container">
   <div class="search-container-box">
@@ -22,8 +18,26 @@
       </button>
     </mat-form-field>
   </div>
-
 </div>
 
+<section>
+  <div class="button-row">
+    <button mat-raised-button color="primary" style="width:15%; font-size:150%;">新闻公告</button>
+    <button mat-raised-button color="primary" style="width:15%; font-size:150%;">服务指南</button>
+    <button mat-raised-button color="primary" style="width:15%; font-size:150%;">在线咨询</button>
+    <button mat-raised-button color="primary" style="width:15%; font-size:150%;">已借图书</button>
+    <button mat-raised-button color="primary" style="width:15%; font-size:150%;">我的活动</button>
+  </div>
+</section>
 
-
+<!--想加入的grid list但没有注入，还需要修改！
+<mat-grid-list cols="4" rowHeight="100px">
+  <mat-grid-tile
+    *ngFor="let tile of tiles"
+    [colspan]="tile.cols"
+    [rowspan]="tile.rows"
+    [style.background]="tile.color">
+    {{tile.text}}
+  </mat-grid-tile>
+</mat-grid-list>
+-->
