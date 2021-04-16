@@ -35,6 +35,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { ReaderHomeComponent } from './pages/reader-home/reader-home.component';
 import { StaffHomeComponent } from './pages/staff-home/staff-home.component';
 import { AdminHomeComponent } from './pages/admin-home/admin-home.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { AdminHomeComponent } from './pages/admin-home/admin-home.component';
     MatDividerModule,
     MatTreeModule,
     MatProgressBarModule,
+    MatGridListModule,
   ],
   providers: [
     MatSnackBar,
