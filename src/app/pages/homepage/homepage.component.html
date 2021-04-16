@@ -12,8 +12,9 @@
 <div class="search-container">
   <div class="search-container-box">
     <mat-form-field class="search-container-box-input">
+      <mat-label>搜索图书</mat-label>
       <input matInput type="text" [(ngModel)]="value">
-      <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Search" >
+      <button mat-button matSuffix mat-icon-button aria-label="Search" >
         <mat-icon>search</mat-icon>
       </button>
     </mat-form-field>
