@@ -39,7 +39,6 @@ export class HomepageComponent implements OnInit {
   navToLogin(): void{
     this.router.navigateByUrl('/login').then();
   }
-
 }
 
 
