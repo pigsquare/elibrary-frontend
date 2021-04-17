@@ -31,6 +31,11 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { SignupComponent } from './pages/signup/signup.component';
+import { ReaderHomeComponent } from './pages/reader-home/reader-home.component';
+import { StaffHomeComponent } from './pages/staff-home/staff-home.component';
+import { AdminHomeComponent } from './pages/admin-home/admin-home.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,11 @@ import {MatExpansionModule} from '@angular/material/expansion';
     HomepageComponent,
     HeaderComponent,
     ChangePasswordDialogComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent,
+    ReaderHomeComponent,
+    StaffHomeComponent,
+    AdminHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -66,6 +75,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatDividerModule,
     MatTreeModule,
     MatProgressBarModule,
+    MatGridListModule,
   ],
   providers: [
     MatSnackBar,

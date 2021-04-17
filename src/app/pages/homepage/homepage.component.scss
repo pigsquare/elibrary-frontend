@@ -1,0 +1,41 @@
+.logo{
+  width: 100%;
+  display: table;
+  text-align:center;
+}
+
+.logo img{
+  width: 15%;
+}
+
+.search-container {
+  width: 100%;
+  display: table;
+  text-align: center;
+}
+
+.search-container-box{
+  width: 100%;
+  font-size: 180%;
+  vertical-align: middle;
+  display: table;
+}
+
+.search-container-box-input{
+  width: 60%;
+}
+
+.section {
+  width: 100%;
+  display: table;
+  text-align: center;
+}
+
+.button-row {
+  padding-left:20%;
+  padding-right:20%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
