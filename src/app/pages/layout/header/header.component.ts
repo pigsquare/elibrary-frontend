@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(): void{
-    this.authService.destroyToken();
+    AuthService.destroyToken();
     this.user = null;
   }
   changePassword(): void{

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Router} from '@angular/router';
 import {AuthTokenRequest} from '../models/auth-token-request';
 import {Observable} from 'rxjs';
 import {AuthTokenResponse} from '../models/auth-token-response';
@@ -11,8 +10,7 @@ import {AuthTokenResponse} from '../models/auth-token-response';
 export class AuthService {
 
   constructor(
-    private http: HttpClient,
-    private router: Router
+    private http: HttpClient
   ) { }
   static getToken(): string | null {
     return window.localStorage.getItem('token');
@@ -26,13 +24,13 @@ export class AuthService {
     window.localStorage.setItem('user_name', authTokenResponse.name);
     window.localStorage.setItem('expr', String(authTokenResponse.expiration));
   }
-  destroyToken(): void {
+  static destroyToken(): void {
     window.localStorage.removeItem('token');
     window.localStorage.removeItem('user_role');
     window.localStorage.removeItem('user_id');
     window.localStorage.removeItem('user_name');
     window.localStorage.removeItem('expr');
-    this.router.navigateByUrl('').then(r => null);
+    window.location.reload();
   }
 
   login(authTokenRequest: AuthTokenRequest): Observable<AuthTokenResponse>{
