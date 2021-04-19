@@ -15,6 +15,7 @@ export class HomepageComponent implements OnInit {
 
   constructor(private router: Router) { }
   value = '';
+  selectOpt = 4;
   tiles: Tile[] = [
     {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
     {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
@@ -23,15 +24,9 @@ export class HomepageComponent implements OnInit {
   ];
   ngOnInit(): void {
   }
-  navToIndex(): void{
-    let tarUrl = '/login';
-    if (window.localStorage.getItem('user_role') === 'ROLE_A') {
-      tarUrl = '/admin';
-    }
-    this.router.navigateByUrl(tarUrl).then();
-  }
-  navToLogin(): void{
-    this.router.navigateByUrl('/login').then();
+  searchBook(): void{
+    console.log(this.value + this.selectOpt);
+    return;
   }
 }
 
