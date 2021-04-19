@@ -7,6 +7,10 @@ import {ReaderHomeComponent} from './pages/reader-home/reader-home.component';
 import {ReaderGuard} from './guard/reader.guard';
 import {StaffHomeComponent} from './pages/staff-home/staff-home.component';
 import {StaffGuard} from './guard/staff.guard';
+import {AdminHomeComponent} from './pages/admin-home/admin-home.component';
+import {AdminGuard} from './guard/admin.guard';
+import {StaffManageComponent} from './pages/admin-home/staff-manage/staff-manage.component';
+import {ReaderGradeManageComponent} from './pages/admin-home/reader-grade-manage/reader-grade-manage.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -19,7 +23,13 @@ const routes: Routes = [
       {path: '', component: HomepageComponent},
     ]
     },
-  {path: '', component: HomepageComponent}
+  {path: 'admin', component: AdminHomeComponent,
+  canActivate: [ReaderGuard, AdminGuard], canActivateChild: [ReaderGuard, AdminGuard], children: [
+      {path: '', component: HomepageComponent},
+      {path: 'staff_manage', component: StaffManageComponent},
+      {path: 'reader_grade', component: ReaderGradeManageComponent},
+    ]},
+  {path: '', component: HomepageComponent},
 ];
 
 @NgModule({

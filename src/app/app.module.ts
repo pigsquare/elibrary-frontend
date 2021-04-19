@@ -36,6 +36,8 @@ import { ReaderHomeComponent } from './pages/reader-home/reader-home.component';
 import { StaffHomeComponent } from './pages/staff-home/staff-home.component';
 import { AdminHomeComponent } from './pages/admin-home/admin-home.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { StaffManageComponent } from './pages/admin-home/staff-manage/staff-manage.component';
+import { ReaderGradeManageComponent } from './pages/admin-home/reader-grade-manage/reader-grade-manage.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     SignupComponent,
     ReaderHomeComponent,
     StaffHomeComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    StaffManageComponent,
+    ReaderGradeManageComponent
   ],
   imports: [
     BrowserModule,
