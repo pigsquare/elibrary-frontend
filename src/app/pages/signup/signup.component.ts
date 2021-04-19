@@ -46,7 +46,10 @@ export class SignupComponent implements OnInit {
         AuthService.saveUser(res);
         this.router.navigateByUrl('/').then();
       }
-    });
+    },
+      error => {
+        this.snackBar.open('手机号码或验证码有误');
+      });
   }
 
 }
