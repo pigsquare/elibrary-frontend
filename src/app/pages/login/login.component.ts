@@ -40,24 +40,7 @@ export class LoginComponent implements OnInit {
             console.log(data);
             AuthService.saveToken(data.token);
             AuthService.saveUser(data);
-            this.snackBar.open('success', undefined, {duration: 2000});
-            switch (data.role) {
-              case 'ROLE_S': {
-                this.router.navigateByUrl('/s')
-                  .then(r => this.snackBar.open('Student logged in.', undefined, {duration: 2000}));
-                break;
-              }
-              case 'ROLE_T': {
-                this.router.navigateByUrl('/t')
-                  .then(r => this.snackBar.open('Teacher logged in.', undefined, {duration: 2000}));
-                break;
-              }
-              case 'ROLE_READER': {
-                this.router.navigateByUrl('/reader')
-                  .then(r => this.snackBar.open('Reader logged in.', undefined, {duration: 2000}));
-                break;
-              }
-            }
+            this.router.navigateByUrl('/').then(() => this.snackBar.open('登录成功^_^', undefined, {duration: 2000}));
           },
           (err: HttpErrorResponse) => {
             this.loginForm.enable();
@@ -65,7 +48,7 @@ export class LoginComponent implements OnInit {
             this.passwordRef.nativeElement.focus();
             console.log(err);
             if (err.status === 400) {
-              this.snackBar.open(err.error.message, undefined, { duration: 5000 });
+              this.snackBar.open('用户名或密码错误', undefined, { duration: 5000 });
             } else if (err.status > 0) {
               this.snackBar.open(`${err.statusText} (${err.status})`, undefined, { duration: 5000 });
             } else {
