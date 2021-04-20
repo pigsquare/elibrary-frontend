@@ -1,1 +1,59 @@
 <p>book-manage works!</p>
+<form (ngSubmit)="autowireBookInfo()">
+  <mat-form-field>
+    <mat-label>isbn</mat-label>
+    <input [(ngModel)]="isbn" [ngModelOptions]="{standalone: true}" matInput type="text">
+  </mat-form-field>
+  <button mat-raised-button>自动获取书籍信息</button>
+</form>
+<h3>书籍信息录入</h3>
+<form *ngIf="editingInfo">
+  <img src="{{editingInfo.imgUrl}}" alt="book img">
+  <mat-form-field>
+    <mat-label>isbn</mat-label>
+    <input [(ngModel)]="editingInfo.isbn" [ngModelOptions]="{standalone: true}" matInput type="text">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>书名</mat-label>
+    <input [(ngModel)]="editingInfo.name" [ngModelOptions]="{standalone: true}" matInput type="text">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>作者</mat-label>
+    <input [(ngModel)]="editingInfo.author" [ngModelOptions]="{standalone: true}" matInput type="text">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>出版社</mat-label>
+    <input [(ngModel)]="editingInfo.publisher" [ngModelOptions]="{standalone: true}" matInput type="text">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>出版时间</mat-label>
+    <input [(ngModel)]="editingInfo.publishDate" [ngModelOptions]="{standalone: true}" matInput type="text">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>价格</mat-label>
+    <input [(ngModel)]="editingInfo.price" [ngModelOptions]="{standalone: true}" matInput type="number">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>中图分类号</mat-label>
+    <input [(ngModel)]="editingInfo.classifyCode" [ngModelOptions]="{standalone: true}" matInput type="text">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>关键词</mat-label>
+    <input [(ngModel)]="editingInfo.keywords" [ngModelOptions]="{standalone: true}" matInput type="text">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>描述</mat-label>
+    <input [(ngModel)]="editingInfo.description" [ngModelOptions]="{standalone: true}" matInput type="text">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>页面信息</mat-label>
+    <input [(ngModel)]="editingInfo.pageInfo" [ngModelOptions]="{standalone: true}" matInput type="text">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>索书号</mat-label>
+    <input [(ngModel)]="editingInfo.indexNo" [ngModelOptions]="{standalone: true}" matInput type="text">
+  </mat-form-field>
+
+  <button mat-raised-button (click)="submitBook()">新增图书</button>
+  <button mat-raised-button (click)="clearInfo()">重置</button>
+</form>
