@@ -44,6 +44,7 @@ export class SignupComponent implements OnInit {
       if (res){
         this.snackBar.open('注册成功');
         AuthService.saveUser(res);
+        AuthService.saveToken(res.token);
         this.router.navigateByUrl('/').then();
       }
     },

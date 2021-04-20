@@ -38,6 +38,18 @@ import { AdminHomeComponent } from './pages/admin-home/admin-home.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { StaffManageComponent } from './pages/admin-home/staff-manage/staff-manage.component';
 import { ReaderGradeManageComponent } from './pages/admin-home/reader-grade-manage/reader-grade-manage.component';
+import { UserManageComponent } from './pages/staff-home/user-manage/user-manage.component';
+import { BookManageComponent } from './pages/staff-home/book-manage/book-manage.component';
+import { HoldingManageComponent } from './pages/staff-home/holding-manage/holding-manage.component';
+import { BorrowManageComponent } from './pages/staff-home/borrow-manage/borrow-manage.component';
+import { CreditManageComponent } from './pages/staff-home/credit-manage/credit-manage.component';
+import { PersonInfoComponent } from './pages/reader-home/person-info/person-info.component';
+import { RenewBookComponent } from './pages/reader-home/renew-book/renew-book.component';
+import { ReserveBookComponent } from './pages/reader-home/reserve-book/reserve-book.component';
+import { BorrowRecordComponent } from './pages/reader-home/borrow-record/borrow-record.component';
+import { SearchBookComponent } from './pages/search-book/search-book.component';
+import { BookDetailComponent } from './pages/book-detail/book-detail.component';
+import { LibGuideComponent } from './pages/lib-guide/lib-guide.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +63,19 @@ import { ReaderGradeManageComponent } from './pages/admin-home/reader-grade-mana
     StaffHomeComponent,
     AdminHomeComponent,
     StaffManageComponent,
-    ReaderGradeManageComponent
+    ReaderGradeManageComponent,
+    UserManageComponent,
+    BookManageComponent,
+    HoldingManageComponent,
+    BorrowManageComponent,
+    CreditManageComponent,
+    PersonInfoComponent,
+    RenewBookComponent,
+    ReserveBookComponent,
+    BorrowRecordComponent,
+    SearchBookComponent,
+    BookDetailComponent,
+    LibGuideComponent
   ],
   imports: [
     BrowserModule,
