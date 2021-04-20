@@ -19,4 +19,7 @@ export class BookManageService {
   addBook(req: BookInfo): Observable<object>{
     return this.http.post('/api/book/add', req);
   }
+  getBookList(): Observable<object>{
+    return this.http.get('/api/book/all');
+  }
 }
