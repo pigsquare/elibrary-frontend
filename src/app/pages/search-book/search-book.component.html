@@ -1,1 +1,24 @@
 <p>search-book works!</p>
+<div class="search-container">
+  <div class="search-container-box">
+    <mat-form-field>
+      <mat-label>搜索选项</mat-label>
+      <mat-select [(ngModel)]="selectOpt">
+        <mat-option value=1>书名</mat-option>
+        <mat-option value=2>ISBN</mat-option>
+        <mat-option value=3>作者</mat-option>
+        <mat-option value=4>模糊查询</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="search-container-box-input">
+      <mat-label>搜索图书</mat-label>
+      <input matInput type="text" [(ngModel)]="value" (keyup.enter)="searchBook()">
+      <button mat-button matSuffix mat-icon-button aria-label="Search" (click)="searchBook()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+</div>
+<div *ngFor="let book of resultList">
+  {{book.isbn}},{{book.name}},{{book.author}},{{book.publisher}}
+</div>

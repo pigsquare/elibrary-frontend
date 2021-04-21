@@ -57,7 +57,9 @@
   <button mat-raised-button (click)="submitBook()">新增图书</button>
   <button mat-raised-button (click)="clearInfo()">重置</button>
 </form>
+
+<h3>已录入图书信息检索</h3>
 <div *ngFor="let book of bookInfo">
   {{book.isbn}},{{book.name}},{{book.author}},{{book.publisher}},
-  <a (click)="editBook(book.isbn)">edit</a>,<a (click)="delBook(book.isbn)">del</a>
+  <a (click)="editBook(book.isbn)">edit</a>,<a (click)="delBook(book)">del</a>
 </div>

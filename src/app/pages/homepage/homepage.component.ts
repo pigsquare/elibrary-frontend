@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+
 export interface Tile {
   color: string;
   cols: number;
@@ -25,8 +26,8 @@ export class HomepageComponent implements OnInit {
   ngOnInit(): void {
   }
   searchBook(): void{
-    console.log(this.value + this.selectOpt);
-    return;
+    this.router.navigateByUrl('/search?method='
+      + this.selectOpt + '&word=' + this.value).then();
   }
 }
 

@@ -62,11 +62,13 @@ export class BookManageComponent implements OnInit {
     return;
   }
 
-  delBook(isbn: string): void{
-    this.bookManageService.delBook(isbn).subscribe(() => {
-      this.matSnackBar.open('删除成功！', undefined, {duration: 2000});
-      this.getData();
-    });
+  delBook(book: BookInfoResponse): void{
+    if (confirm('确认删除《' + book.name + '》吗？')){
+      this.bookManageService.delBook(book.isbn).subscribe(() => {
+        this.matSnackBar.open('删除成功！', undefined, {duration: 2000});
+        this.getData();
+      });
+    }
   }
 
 }
