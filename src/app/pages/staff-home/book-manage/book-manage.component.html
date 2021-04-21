@@ -58,5 +58,6 @@
   <button mat-raised-button (click)="clearInfo()">重置</button>
 </form>
 <div *ngFor="let book of bookInfo">
-  {{book.isbn}},{{book.name}},{{book.author}}
+  {{book.isbn}},{{book.name}},{{book.author}},{{book.publisher}},
+  <a (click)="editBook(book.isbn)">edit</a>,<a (click)="delBook(book.isbn)">del</a>
 </div>

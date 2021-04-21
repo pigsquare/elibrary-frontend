@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {BookManageService} from '../../../services/book-manage.service';
 import {BookInfo} from '../../../models/book-info';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {BookInfoResponse} from '../../../models/book-info-response';
 
 @Component({
   selector: 'app-book-manage',
@@ -12,7 +13,7 @@ export class BookManageComponent implements OnInit {
 
   isbn: string;
   editingInfo: BookInfo;
-  bookInfo: object;
+  bookInfo: BookInfoResponse[];
   constructor(
     private bookManageService: BookManageService,
     private matSnackBar: MatSnackBar,
@@ -40,15 +41,32 @@ export class BookManageComponent implements OnInit {
   submitBook(): void{
     console.log('submit!');
     this.bookManageService.addBook(this.editingInfo).subscribe(r => {
-      console.log('success');
+      console.log('success' + r);
       this.matSnackBar.open('添加成功！', undefined, {duration: 2000});
       this.getData();
-    });
+    },
+      () => {
+      this.matSnackBar.open('输入信息有误或该书已录入', undefined, {duration: 2000});
+      });
     return;
   }
 
   clearInfo(): void{
     this.editingInfo = new BookInfo();
+  }
+
+  editBook(isbn: string): void{
+    this.bookManageService.getBook(isbn).subscribe(r => {
+      console.log(r);
+    });
+    return;
+  }
+
+  delBook(isbn: string): void{
+    this.bookManageService.delBook(isbn).subscribe(() => {
+      this.matSnackBar.open('删除成功！', undefined, {duration: 2000});
+      this.getData();
+    });
   }
 
 }
