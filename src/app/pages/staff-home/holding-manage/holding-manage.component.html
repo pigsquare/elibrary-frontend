@@ -1,1 +1,12 @@
 <p>holding-manage works!</p>
+<form (ngSubmit)="getBarcode()">
+  <mat-form-field>
+    <mat-label>isbn</mat-label>
+    <input [(ngModel)]="getBarcodeInput" [ngModelOptions]="{standalone: true}" matInput type="text">
+  </mat-form-field>
+  <button mat-raised-button>生成并打印条形码</button>
+</form>
+
+<div id="print-content">
+  <svg id="barcode"></svg>
+</div>
