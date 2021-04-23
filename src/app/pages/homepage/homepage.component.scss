@@ -1,3 +1,9 @@
+/*.overall-format{
+  display: flex;
+  align-items: center;
+  min-height: 100%;
+}*/
+
 .logo{
   width: 100%;
   display: table;
@@ -5,7 +11,7 @@
 }
 
 .logo img{
-  width: 15%;
+  width: 18%;
 }
 
 .search-container {
@@ -16,7 +22,7 @@
 
 .search-container-box{
   width: 100%;
-  font-size: 150%;
+  font-size: 120%;
   vertical-align: middle;
   display: table;
 }
@@ -32,8 +38,8 @@
 }
 
 .button-row {
-  padding-left:20%;
-  padding-right:20%;
+  padding-left:10%;
+  padding-right:10%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;

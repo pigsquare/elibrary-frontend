@@ -1,9 +1,10 @@
-<p class="mat-h2">欢迎访问XXX图书馆!</p>
-<br>
 
+<br>
 <div class="logo">
   <img src="./assets/images/library.png"/>
 </div>
+
+<!--div class="overall-format"></div-->
 
 <div class="search-container">
   <div class="search-container-box">
@@ -25,18 +26,21 @@
     </mat-form-field>
   </div>
 </div>
-
 <section>
   <div class="button-row">
-    <button mat-raised-button color="primary" style="width:15%; font-size:150%;">新闻公告</button>
-    <button mat-raised-button color="primary" style="width:15%; font-size:150%;">服务指南</button>
-    <button mat-raised-button color="primary" style="width:15%; font-size:150%;">在线咨询</button>
-    <button mat-raised-button color="primary" style="width:15%; font-size:150%;">已借图书</button>
-    <button mat-raised-button color="primary" style="width:15%; font-size:150%;">我的活动</button>
+    <button mat-raised-button color="primary" style="width:15%; font-size:100%;">新闻公告</button>
+    <button mat-raised-button color="primary" style="width:15%; font-size:100%;">服务指南</button>
+    <button mat-raised-button color="primary" style="width:15%; font-size:100%;">在线咨询</button>
+    <button mat-raised-button color="primary" style="width:15%; font-size:100%;">已借图书</button>
+    <button mat-raised-button color="primary" style="width:15%; font-size:100%;">我的活动</button>
   </div>
 </section>
 
-<mat-grid-list cols="4" rowHeight="100px">
+
+<p></p>
+
+
+<!--mat-grid-list cols="4" rowHeight="100px">
   <mat-grid-tile
     *ngFor="let tile of tiles"
     [colspan]="tile.cols"
@@ -44,5 +48,5 @@
     [style.background]="tile.color">
     {{tile.text}}
   </mat-grid-tile>
-</mat-grid-list>
+</mat-grid-list-->
 

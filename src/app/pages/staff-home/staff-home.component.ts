@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./staff-home.component.scss']
 })
 export class StaffHomeComponent implements OnInit {
+  showFiller = false;
 
   constructor() { }
 
