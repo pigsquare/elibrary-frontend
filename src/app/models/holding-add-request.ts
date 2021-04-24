@@ -6,5 +6,6 @@ import {Injectable} from '@angular/core';
 export class HoldingAddRequest {
   barcode: string;
   isbn: string;
+  status: string;
 }
 

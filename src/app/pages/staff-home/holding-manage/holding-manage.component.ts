@@ -3,6 +3,7 @@ import {CommonResponse} from '../../../models/common-response';
 import {HoldingService} from '../../../services/holding.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import * as JsBarcode from 'jsbarcode';
+import {HoldingAddRequest} from '../../../models/holding-add-request';
 
 @Component({
   selector: 'app-holding-manage',
@@ -12,6 +13,8 @@ import * as JsBarcode from 'jsbarcode';
 export class HoldingManageComponent implements OnInit {
   barcodeRes: CommonResponse;
   getBarcodeInput = '';
+  barcode = '';
+  status = 'AVAILABLE';
 
   constructor(
     private holdingService: HoldingService,
@@ -24,8 +27,9 @@ export class HoldingManageComponent implements OnInit {
   getBarcode(): void{
     this.holdingService.getBarcode(this.getBarcodeInput).subscribe(r => {
       this.barcodeRes = r;
+      this.barcode = r.message;
       JsBarcode('#barcode', this.barcodeRes.message, {
-        width: 1.9,
+        width: 1.875,
         height: 60,
       });
       console.log(r);
@@ -38,5 +42,15 @@ export class HoldingManageComponent implements OnInit {
     }, () => {
       this.snackBar.open('ISBN未录入，请先录入！', undefined, {duration: 3000});
     });
+  }
+  addHolding(): void{
+     const addRequest = new HoldingAddRequest();
+     addRequest.barcode = this.barcode;
+     addRequest.isbn = this.getBarcodeInput;
+     addRequest.status = this.status;
+     console.log(addRequest);
+     this.holdingService.addHolding(addRequest).subscribe(r => {
+       console.log(r);
+     });
   }
 }

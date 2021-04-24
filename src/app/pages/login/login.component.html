@@ -10,14 +10,14 @@
       <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
 
         <mat-form-field class="login-container-box-input">
-          <mat-label style="font-size:150%;">用户名/邮箱/手机号码</mat-label>
+          <mat-label>用户名/邮箱/手机号码</mat-label>
           <input #username formControlName="username" matInput type="text">
         </mat-form-field>
 
         <br> <!--换行符-->
 
         <mat-form-field class="login-container-box-input">
-          <mat-label style="font-size:150%;">密码</mat-label>
+          <mat-label>密码</mat-label>
           <input #password formControlName="password" matInput type="password">
         </mat-form-field>
 
