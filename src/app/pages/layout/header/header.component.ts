@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(): void{
-    this.authService.destroyToken();
+    AuthService.destroyToken();
     this.user = null;
   }
   changePassword(): void{
@@ -60,14 +60,7 @@ export class HeaderComponent implements OnInit {
   }
 
   navToIndex(): void{
-    let url = '';
-    if (window.localStorage.getItem('user_role') === 'ROLE_READER') {
-      url = '/r';
-    }
-    if (window.localStorage.getItem('user_role') === 'ROLE_STUFF') {
-      url = '/t';
-    }
-    this.router.navigateByUrl(url).then();
+    this.router.navigateByUrl('/reader').then();
   }
 
 }

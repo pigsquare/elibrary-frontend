@@ -14,7 +14,15 @@
         <mat-menu #menu="matMenu">
           <button (click)="navToIndex()" mat-menu-item>
             <mat-icon>home</mat-icon>
-            <span>进入系统</span>
+            <span>我的图书馆</span>
+          </button>
+          <button *ngIf="user.role=='ROLE_ADMIN'" routerLink="/admin" mat-menu-item>
+            <mat-icon>home</mat-icon>
+            <span>管理后台</span>
+          </button>
+          <button *ngIf="user.role=='ROLE_STAFF'" routerLink="/staff" mat-menu-item>
+            <mat-icon>home</mat-icon>
+            <span>管理系统</span>
           </button>
           <button (click)="changePassword()" mat-menu-item>
             <mat-icon>border_color</mat-icon>

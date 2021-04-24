@@ -1,5 +1,12 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import {
+  CanActivate,
+  CanActivateChild,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  UrlTree,
+  Router
+} from '@angular/router';
 import { Observable } from 'rxjs';
 import {AuthService} from '../services/auth.service';
 
@@ -7,13 +14,16 @@ import {AuthService} from '../services/auth.service';
   providedIn: 'root'
 })
 export class ReaderGuard implements CanActivate, CanActivateChild {
-  constructor(private authService: AuthService){}
+  constructor(
+    private authService: AuthService,
+    private router: Router){}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const res = window.localStorage.getItem('token') !== null;
     if (res && (Number(window.localStorage.getItem('expr'))) < Date.now() - 30000){
-      this.authService.destroyToken();
+      AuthService.destroyToken();
+      this.router.navigateByUrl('/').then();
       alert('登录已过期，请重新登录！');
       return false;
     }
@@ -26,6 +36,9 @@ export class ReaderGuard implements CanActivate, CanActivateChild {
       });
     }
 
+    if (!res){
+      this.router.navigateByUrl('/').then();
+    }
     return res;
   }
   canActivateChild(

@@ -1,0 +1,27 @@
+.bar-get-book-detail {
+  width: 100%;
+  display: table;
+  text-align: center;
+}
+
+.get-book-detail{
+  width: 100%;
+  font-size: 100%;
+  vertical-align: middle;
+  display: table;
+}
+
+.bar-insert-book-detail {
+  width: 100%;
+  display: table;
+  text-align: center;
+}
+
+.insert-book-detail{
+  padding-left:15%;
+  padding-right:15%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+}

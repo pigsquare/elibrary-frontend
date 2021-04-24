@@ -1,0 +1,76 @@
+<p>holding-manage works!</p>
+
+<div>
+  图书入库管理
+</div>
+<form (ngSubmit)="getBarcode()">
+  <mat-form-field>
+    <mat-label>isbn</mat-label>
+    <label>
+      <input [(ngModel)]="getBarcodeInput" name="first" matInput type="text">
+    </label>
+  </mat-form-field>
+  <button mat-raised-button>生成并打印条形码</button>
+</form>
+
+<div id="print-content">
+  <svg id="barcode"></svg>
+</div>
+
+<form>
+  <mat-form-field>
+    <mat-label>isbn</mat-label>
+    <label>
+      <input type="text" [(ngModel)]="getBarcodeInput" name="first" matInput>
+    </label>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>条码号</mat-label>
+    <label>
+      <input matInput type="text" [(ngModel)]="barcode" name="second">
+    </label>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>设置状态</mat-label>
+    <mat-select [(ngModel)]="status" name="third">
+      <mat-option value="AVAILABLE">可借</mat-option>
+      <mat-option value="UNAVAILABLE">不可借</mat-option>
+      <mat-option value="DAMAGED">损坏</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button (click)="addHolding()">录入图书</button>
+</form>
+
+<div>
+  图书状态修改
+</div>
+<div>
+  <mat-form-field>
+    <mat-label>条码号</mat-label>
+    <label>
+      <input matInput type="text">
+    </label>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>设置状态</mat-label>
+    <mat-select>
+      <mat-option value="AVAILABLE">可借</mat-option>
+      <mat-option value="UNAVAILABLE">不可借</mat-option>
+      <mat-option value="DAMAGED">损坏</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button>修改</button>
+</div>
+
+<div>
+  在库图书查询
+</div>
+<div>
+  <mat-form-field>
+    <mat-label>isbn</mat-label>
+    <label>
+      <input matInput type="text">
+    </label>
+  </mat-form-field>
+  <button mat-raised-button>查询</button>
+</div>

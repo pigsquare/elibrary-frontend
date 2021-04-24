@@ -1,37 +1,44 @@
-<div class="mat-h3">
-  <button mat-raised-button (click)="navToIndex()">进入系统</button>&nbsp;
-  <button mat-raised-button color="primary" (click)="navToLogin()">登录</button>
-</div>
-<p class="mat-h2">欢迎使用选课管理系统!</p>
-<br>
 
+<br>
 <div class="logo">
   <img src="./assets/images/library.png"/>
 </div>
 
+<!--div class="overall-format"></div-->
+
 <div class="search-container">
   <div class="search-container-box">
+    <mat-form-field>
+      <mat-label>搜索选项</mat-label>
+      <mat-select [(ngModel)]="selectOpt">
+        <mat-option value=1>书名</mat-option>
+        <mat-option value=2>ISBN</mat-option>
+        <mat-option value=3>作者</mat-option>
+        <mat-option value=4>模糊查询</mat-option>
+      </mat-select>
+    </mat-form-field>
     <mat-form-field class="search-container-box-input">
       <mat-label>搜索图书</mat-label>
-      <input matInput type="text" [(ngModel)]="value">
-      <button mat-button matSuffix mat-icon-button aria-label="Search" >
+      <input matInput type="text" [(ngModel)]="value" (keyup.enter)="searchBook()">
+      <button mat-button matSuffix mat-icon-button aria-label="Search" (click)="searchBook()">
         <mat-icon>search</mat-icon>
       </button>
     </mat-form-field>
   </div>
 </div>
-
 <section>
   <div class="button-row">
-    <button mat-raised-button color="primary" style="width:15%; font-size:150%;">新闻公告</button>
-    <button mat-raised-button color="primary" style="width:15%; font-size:150%;">服务指南</button>
-    <button mat-raised-button color="primary" style="width:15%; font-size:150%;">在线咨询</button>
-    <button mat-raised-button color="primary" style="width:15%; font-size:150%;">已借图书</button>
-    <button mat-raised-button color="primary" style="width:15%; font-size:150%;">我的活动</button>
+    <button mat-raised-button color="primary" style="font-size:100%;">新闻公告</button>
+    <button mat-raised-button color="primary" style="font-size:100%;">服务指南</button>
+    <button mat-raised-button color="primary" style="font-size:100%;">在线咨询</button>
+    <button mat-raised-button color="primary" style="font-size:100%;">已借图书</button>
+    <button mat-raised-button color="primary" style="font-size:100%;">我的活动</button>
   </div>
 </section>
+<p></p>
 
-<mat-grid-list cols="4" rowHeight="100px">
+
+<!--mat-grid-list cols="4" rowHeight="100px">
   <mat-grid-tile
     *ngFor="let tile of tiles"
     [colspan]="tile.cols"
@@ -39,5 +46,5 @@
     [style.background]="tile.color">
     {{tile.text}}
   </mat-grid-tile>
-</mat-grid-list>
+</mat-grid-list-->
 
