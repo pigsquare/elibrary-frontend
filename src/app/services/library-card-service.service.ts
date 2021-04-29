@@ -13,7 +13,7 @@ export class LibraryCardServiceService {
     private http: HttpClient,
   ) { }
 
-  submit(req: LibraryCardRequest): Observable<CommonResponse>{
+  submitCardInfo(req: LibraryCardRequest): Observable<CommonResponse>{
     return this.http.post<CommonResponse>('/api/user/card', req);
   }
 }

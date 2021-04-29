@@ -10,12 +10,17 @@
       <input [(ngModel)]="getBarcodeInput" name="first" matInput type="text">
     </label>
   </mat-form-field>
-  <button mat-raised-button>生成并打印条形码</button>
+  <button mat-raised-button>生成条形码</button>
 </form>
 
-<div id="print-content">
-  <svg id="barcode"></svg>
+<div>
+  <div id="print-content">
+    <div style="font-size: 60%;">&nbsp;&nbsp;{{bookName}}</div>
+    <svg id="barcode"></svg>
+  </div>
+  <button (click)="printBarcode()" mat-raised-button>打印条码</button>
 </div>
+
 
 <form>
   <mat-form-field>

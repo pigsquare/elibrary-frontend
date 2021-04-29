@@ -4,6 +4,7 @@ import {HoldingService} from '../../../services/holding.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import * as JsBarcode from 'jsbarcode';
 import {HoldingAddRequest} from '../../../models/holding-add-request';
+import {BookManageService} from '../../../services/book-manage.service';
 
 @Component({
   selector: 'app-holding-manage',
@@ -15,10 +16,12 @@ export class HoldingManageComponent implements OnInit {
   getBarcodeInput = '';
   barcode = '';
   status = 'AVAILABLE';
+  bookName = '';
 
   constructor(
     private holdingService: HoldingService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private bookManageService: BookManageService,
   ) { }
 
   ngOnInit(): void {
@@ -33,15 +36,20 @@ export class HoldingManageComponent implements OnInit {
         height: 60,
       });
       console.log(r);
-      const printContent = document.getElementById('print-content');
-      const WindowPrt = window.open('', '', 'left=0,top=0,toolbar=0,scrollbars=0,status=0');
-      WindowPrt.document.write(printContent.innerHTML);
-      WindowPrt.focus();
-      WindowPrt.print();
-      WindowPrt.close();
+      this.bookManageService.getBook(this.getBarcodeInput).subscribe(r1 => {
+        this.bookName = r1.name;
+      });
     }, () => {
       this.snackBar.open('ISBN未录入，请先录入！', undefined, {duration: 3000});
     });
+  }
+  printBarcode(): void{
+    const printContent = document.getElementById('print-content');
+    const WindowPrt = window.open('', '', 'left=0,top=0,toolbar=0,scrollbars=0,status=0');
+    WindowPrt.document.write(printContent.innerHTML);
+    WindowPrt.focus();
+    WindowPrt.print();
+    WindowPrt.close();
   }
   addHolding(): void{
      const addRequest = new HoldingAddRequest();
@@ -51,6 +59,7 @@ export class HoldingManageComponent implements OnInit {
      console.log(addRequest);
      this.holdingService.addHolding(addRequest).subscribe(r => {
        console.log(r);
+       this.snackBar.open('录入成功', undefined, {duration: 2000});
      });
   }
 }
