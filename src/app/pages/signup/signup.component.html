@@ -1,21 +1,36 @@
-<form [formGroup]="signupForm">
-  <mat-form-field>
-    <mat-label>手机号码</mat-label>
-    <input #tel formControlName="tel" matInput type="text">
-  </mat-form-field>
-  <button mat-raised-button (click)="getVerifyCode()">获取验证码</button>
-  <br>
-  <mat-form-field>
-    <mat-label>验证码</mat-label>
-    <input #code formControlName="code" matInput type="text">
-  </mat-form-field>
-  <br>
-  <mat-form-field>
-    <mat-label>密码</mat-label>
-    <input #password formControlName="password" matInput type="password">
-  </mat-form-field>
+<span>注册页面</span>
 
-  <div class="form__submit-container">
-    <button [disabled]="!signupForm.valid" color="primary" (click)="onSubmit()" mat-raised-button>注册</button>
-  </div>
-</form>
+<div class="logo">
+  <img src="./assets/images/library.png"/>
+</div>
+
+<div class="grid">
+  <form [formGroup]="signupForm">
+    <mat-form-field>
+      <mat-label>手机号码</mat-label>
+      <input #tel formControlName="tel" matInput type="text">
+    </mat-form-field>
+    <button mat-raised-button (click)="getVerifyCode()">获取验证码</button>
+    <br>
+    <mat-form-field style="width:100%;">
+      <mat-label>请输入验证码</mat-label>
+      <input #code formControlName="code" matInput type="text">
+    </mat-form-field>
+    <br>
+    <mat-form-field style="width:100%;">
+      <mat-label>请设置密码</mat-label>
+      <input #password formControlName="password" matInput type="password" >
+    </mat-form-field>
+
+    <div class="form__submit-container">
+      <button [disabled]="!signupForm.valid"
+              color="primary"
+              (click)="onSubmit()"
+              style="width:100%;"
+              mat-raised-button>
+        注册
+      </button>
+    </div>
+  </form>
+</div>
+
