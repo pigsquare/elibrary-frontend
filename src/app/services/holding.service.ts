@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {CommonResponse} from '../models/common-response';
-import {HoldingAddRequest} from '../models/holding-add-request';
+import {HoldingAddRequest} from '../models/holding/holding-add-request';
 
 @Injectable({
   providedIn: 'root'

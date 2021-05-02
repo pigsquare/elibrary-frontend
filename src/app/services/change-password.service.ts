@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ChangePasswordRequest} from '../models/change-password-request';
+import {ChangePasswordRequest} from '../models/user/change-password-request';
 import {Observable} from 'rxjs';
 import {CommonResponse} from '../models/common-response';
 

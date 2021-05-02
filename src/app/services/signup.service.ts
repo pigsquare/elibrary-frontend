@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {RegisterByTelRequest} from '../models/register-by-tel-request';
+import {RegisterByTelRequest} from '../models/auth/register-by-tel-request';
 import {Observable} from 'rxjs';
-import {ValidateByTelRequest} from '../models/validate-by-tel-request';
-import {AuthTokenResponse} from '../models/auth-token-response';
+import {ValidateByTelRequest} from '../models/auth/validate-by-tel-request';
+import {AuthTokenResponse} from '../models/auth/auth-token-response';
 import {CommonResponse} from '../models/common-response';
 
 @Injectable({

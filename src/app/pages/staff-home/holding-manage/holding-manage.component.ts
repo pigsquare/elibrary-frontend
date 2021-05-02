@@ -3,7 +3,7 @@ import {CommonResponse} from '../../../models/common-response';
 import {HoldingService} from '../../../services/holding.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import * as JsBarcode from 'jsbarcode';
-import {HoldingAddRequest} from '../../../models/holding-add-request';
+import {HoldingAddRequest} from '../../../models/holding/holding-add-request';
 import {BookManageService} from '../../../services/book-manage.service';
 
 @Component({

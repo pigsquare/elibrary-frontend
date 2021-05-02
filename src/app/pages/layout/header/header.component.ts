@@ -3,8 +3,8 @@ import {Router} from '@angular/router';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {AuthService} from '../../../services/auth.service';
-import {User} from '../../../models/user';
-import {ChangePasswordRequest} from '../../../models/change-password-request';
+import {User} from '../../../models/user/user';
+import {ChangePasswordRequest} from '../../../models/user/change-password-request';
 import {ChangePasswordService} from '../../../services/change-password.service';
 
 @Component({

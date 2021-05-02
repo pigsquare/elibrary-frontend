@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {LibraryCardRequest} from '../models/library-card-request';
+import {LibraryCardRequest} from '../models/user/library-card-request';
 import {Observable} from 'rxjs';
 import {CommonResponse} from '../models/common-response';
 
