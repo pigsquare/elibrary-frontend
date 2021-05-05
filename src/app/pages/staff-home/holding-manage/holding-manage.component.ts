@@ -6,6 +6,7 @@ import * as JsBarcode from 'jsbarcode';
 import {HoldingAddRequest} from '../../../models/holding/holding-add-request';
 import {BookManageService} from '../../../services/book-manage.service';
 import {HoldingUpdateRequest} from '../../../models/holding/holding-update-request';
+import {HoldingInfoResponse} from '../../../models/holding/holding-info-response';
 
 @Component({
   selector: 'app-holding-manage',
@@ -20,6 +21,8 @@ export class HoldingManageComponent implements OnInit {
   bookName = '';
   updateBarcode = '';
   updateStatus = '';
+  getHoldingIsbn = '';
+  holdingInfo: HoldingInfoResponse[];
 
   constructor(
     private holdingService: HoldingService,
@@ -77,6 +80,13 @@ export class HoldingManageComponent implements OnInit {
       }
     }, () => {
       this.snackBar.open('更新失败', undefined, {duration: 2000});
+    });
+  }
+  getHoldingsByIsbn(): void{
+    this.holdingService.getHoldingsByISBN(this.getHoldingIsbn).subscribe(r => {
+      this.holdingInfo = r;
+    }, () => {
+      this.snackBar.open('获取失败', undefined, {duration: 2000});
     });
   }
 }

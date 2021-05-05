@@ -74,8 +74,13 @@
   <mat-form-field>
     <mat-label>isbn</mat-label>
     <label>
-      <input matInput type="text">
+      <input [(ngModel)]="getHoldingIsbn" matInput type="text">
     </label>
   </mat-form-field>
-  <button mat-raised-button>查询</button>
+  <button mat-raised-button (click)="getHoldingsByIsbn()">查询</button>
+</div>
+<div *ngIf="holdingInfo">
+  <div *ngFor="let holding of holdingInfo">
+    {{holding.id}},{{holding.isbn}},{{holding.barcode}},{{holding.status}}
+  </div>
 </div>

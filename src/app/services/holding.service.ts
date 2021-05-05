@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {CommonResponse} from '../models/common-response';
 import {HoldingAddRequest} from '../models/holding/holding-add-request';
 import {HoldingUpdateRequest} from '../models/holding/holding-update-request';
+import {HoldingInfoResponse} from '../models/holding/holding-info-response';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +20,8 @@ export class HoldingService {
   }
   updateHoldingStatus(req: HoldingUpdateRequest): Observable<CommonResponse>{
     return this.http.patch<CommonResponse>('/api/holdings/' + req.barcode, req);
+  }
+  getHoldingsByISBN(isbn: string): Observable<HoldingInfoResponse[]>{
+    return this.http.get<HoldingInfoResponse[]>('/api/holdings/books/' + isbn);
   }
 }
