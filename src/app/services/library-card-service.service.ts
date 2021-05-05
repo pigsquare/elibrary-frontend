@@ -14,6 +14,6 @@ export class LibraryCardServiceService {
   ) { }
 
   submitCardInfo(req: LibraryCardRequest): Observable<CommonResponse>{
-    return this.http.post<CommonResponse>('/api/user/card', req);
+    return this.http.post<CommonResponse>('/api/users/current-user/card/', req);
   }
 }

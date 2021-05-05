@@ -13,23 +13,25 @@ export class BookManageService {
     private http: HttpClient
   ) { }
 
+  // 获取爬虫爬取的指定图书的信息
   fetchBookInfo(isbn: string): Observable<BookInfo>{
-    return this.http.get<BookInfo>('/api/search/book/info/crawler/' + isbn);
+    return this.http.get<BookInfo>('/api/search/crawler/books/' + isbn);
   }
 
   addBook(req: BookInfo): Observable<object>{
-    return this.http.post('/api/book/add', req);
+    return this.http.post('/api/books/', req);
   }
   getBookList(): Observable<BookInfoResponse[]>{
-    return this.http.get<BookInfoResponse[]>('/api/book/all');
+    return this.http.get<BookInfoResponse[]>('/api/books/');
   }
   delBook(isbn: string): Observable<any>{
-    return this.http.delete('/api/book/del/' + isbn);
+    return this.http.delete('/api/books/' + isbn);
   }
   updateBook(req: BookInfo): Observable<any>{
-    return this.http.post('/api/book/update', req);
+    return this.http.put('/api/books/', req);
   }
+  // 获取数据库保存的指定图书的信息
   getBook(isbn: string): Observable<BookInfo>{
-    return this.http.get<BookInfo>('/api/search/book/info/' + isbn);
+    return this.http.get<BookInfo>('/api/search/books/' + isbn);
   }
 }

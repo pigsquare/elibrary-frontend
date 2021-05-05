@@ -12,6 +12,6 @@ export class BookSearchService {
   constructor(private http: HttpClient) { }
 
   searchBook(req: BookSearchRequest): Observable<BookInfoResponse[]>{
-    return this.http.post<BookInfoResponse[]>('/api/search/book/list', req);
+    return this.http.post<BookInfoResponse[]>('/api/search/books', req);
   }
 }

@@ -53,18 +53,18 @@
   <mat-form-field>
     <mat-label>条码号</mat-label>
     <label>
-      <input matInput type="text">
+      <input matInput type="text" [(ngModel)]="updateBarcode">
     </label>
   </mat-form-field>
   <mat-form-field>
     <mat-label>设置状态</mat-label>
-    <mat-select>
+    <mat-select [(ngModel)]="updateStatus">
       <mat-option value="AVAILABLE">可借</mat-option>
       <mat-option value="UNAVAILABLE">不可借</mat-option>
       <mat-option value="DAMAGED">损坏</mat-option>
     </mat-select>
   </mat-form-field>
-  <button mat-raised-button>修改</button>
+  <button mat-raised-button (click)="updateHoldingStatus()">修改</button>
 </div>
 
 <div>

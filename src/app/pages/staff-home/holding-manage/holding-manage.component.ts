@@ -5,6 +5,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import * as JsBarcode from 'jsbarcode';
 import {HoldingAddRequest} from '../../../models/holding/holding-add-request';
 import {BookManageService} from '../../../services/book-manage.service';
+import {HoldingUpdateRequest} from '../../../models/holding/holding-update-request';
 
 @Component({
   selector: 'app-holding-manage',
@@ -17,6 +18,8 @@ export class HoldingManageComponent implements OnInit {
   barcode = '';
   status = 'AVAILABLE';
   bookName = '';
+  updateBarcode = '';
+  updateStatus = '';
 
   constructor(
     private holdingService: HoldingService,
@@ -61,5 +64,19 @@ export class HoldingManageComponent implements OnInit {
        console.log(r);
        this.snackBar.open('录入成功', undefined, {duration: 2000});
      });
+  }
+  updateHoldingStatus(): void{
+    const holdingUpdateRequest = new HoldingUpdateRequest();
+    holdingUpdateRequest.barcode = this.updateBarcode;
+    holdingUpdateRequest.status = this.updateStatus;
+    this.holdingService.updateHoldingStatus(holdingUpdateRequest).subscribe(r => {
+      if (r.args){
+        this.snackBar.open('更新成功', undefined, {duration: 2000});
+      } else{
+        this.snackBar.open('更新失败', undefined, {duration: 2000});
+      }
+    }, () => {
+      this.snackBar.open('更新失败', undefined, {duration: 2000});
+    });
   }
 }
