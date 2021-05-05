@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {BookManageService} from '../../../services/book-manage.service';
-import {BookInfo} from '../../../models/book-info';
+import {BookInfo} from '../../../models/book/book-info';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {BookInfoResponse} from '../../../models/book-info-response';
+import {BookInfoResponse} from '../../../models/book/book-info-response';
 
 @Component({
   selector: 'app-book-manage',

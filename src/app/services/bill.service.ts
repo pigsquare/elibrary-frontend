@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ChangePasswordRequest} from '../models/user/change-password-request';
 import {Observable} from 'rxjs';
 import {CommonResponse} from '../models/common-response';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ChangePasswordService {
+export class BillService {
 
   constructor(private http: HttpClient) { }
-  changeP(request: ChangePasswordRequest): Observable<CommonResponse>{
-    return this.http.put<CommonResponse>('/api/users/current-user/password', request);
+  getBalance(tel: string): Observable<CommonResponse>{
+    return this.http.get<CommonResponse>('/api/bill/balance/' + tel);
   }
 }

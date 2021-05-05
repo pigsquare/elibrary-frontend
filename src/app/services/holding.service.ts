@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {CommonResponse} from '../models/common-response';
-import {HoldingAddRequest} from '../models/holding-add-request';
+import {HoldingAddRequest} from '../models/holding/holding-add-request';
+import {HoldingUpdateRequest} from '../models/holding/holding-update-request';
+import {HoldingInfoResponse} from '../models/holding/holding-info-response';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +13,15 @@ export class HoldingService {
 
   constructor(private http: HttpClient) { }
   getBarcode(isbn: string): Observable<CommonResponse>{
-    return this.http.get<CommonResponse>('/api/holding/barcode/' + isbn);
+    return this.http.get<CommonResponse>('/api/holdings/barcode/' + isbn);
   }
   addHolding(req: HoldingAddRequest): Observable<object>{
-    return this.http.post('/api/holding/add', req);
+    return this.http.post('/api/holdings/', req);
+  }
+  updateHoldingStatus(req: HoldingUpdateRequest): Observable<CommonResponse>{
+    return this.http.patch<CommonResponse>('/api/holdings/' + req.barcode, req);
+  }
+  getHoldingsByISBN(isbn: string): Observable<HoldingInfoResponse[]>{
+    return this.http.get<HoldingInfoResponse[]>('/api/holdings/books/' + isbn);
   }
 }

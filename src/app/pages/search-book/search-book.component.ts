@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {BookSearchService} from '../../services/book-search.service';
-import {BookSearchRequest} from '../../models/book-search-request';
-import {BookInfoResponse} from '../../models/book-info-response';
+import {BookSearchRequest} from '../../models/book/book-search-request';
+import {BookInfoResponse} from '../../models/book/book-info-response';
 
 @Component({
   selector: 'app-search-book',

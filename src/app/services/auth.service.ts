@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {AuthTokenRequest} from '../models/auth-token-request';
+import {AuthTokenRequest} from '../models/auth/auth-token-request';
 import {Observable} from 'rxjs';
-import {AuthTokenResponse} from '../models/auth-token-response';
+import {AuthTokenResponse} from '../models/auth/auth-token-response';
 
 @Injectable({
   providedIn: 'root'

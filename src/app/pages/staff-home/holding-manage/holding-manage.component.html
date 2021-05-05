@@ -10,12 +10,17 @@
       <input [(ngModel)]="getBarcodeInput" name="first" matInput type="text">
     </label>
   </mat-form-field>
-  <button mat-raised-button>生成并打印条形码</button>
+  <button mat-raised-button>生成条形码</button>
 </form>
 
-<div id="print-content">
-  <svg id="barcode"></svg>
+<div>
+  <div id="print-content">
+    <div style="font-size: 60%;">&nbsp;&nbsp;{{bookName}}</div>
+    <svg id="barcode"></svg>
+  </div>
+  <button (click)="printBarcode()" mat-raised-button>打印条码</button>
 </div>
+
 
 <form>
   <mat-form-field>
@@ -48,18 +53,18 @@
   <mat-form-field>
     <mat-label>条码号</mat-label>
     <label>
-      <input matInput type="text">
+      <input matInput type="text" [(ngModel)]="updateBarcode">
     </label>
   </mat-form-field>
   <mat-form-field>
     <mat-label>设置状态</mat-label>
-    <mat-select>
+    <mat-select [(ngModel)]="updateStatus">
       <mat-option value="AVAILABLE">可借</mat-option>
       <mat-option value="UNAVAILABLE">不可借</mat-option>
       <mat-option value="DAMAGED">损坏</mat-option>
     </mat-select>
   </mat-form-field>
-  <button mat-raised-button>修改</button>
+  <button mat-raised-button (click)="updateHoldingStatus()">修改</button>
 </div>
 
 <div>
@@ -69,8 +74,13 @@
   <mat-form-field>
     <mat-label>isbn</mat-label>
     <label>
-      <input matInput type="text">
+      <input [(ngModel)]="getHoldingIsbn" matInput type="text">
     </label>
   </mat-form-field>
-  <button mat-raised-button>查询</button>
+  <button mat-raised-button (click)="getHoldingsByIsbn()">查询</button>
+</div>
+<div *ngIf="holdingInfo">
+  <div *ngFor="let holding of holdingInfo">
+    {{holding.id}},{{holding.isbn}},{{holding.barcode}},{{holding.status}}
+  </div>
 </div>

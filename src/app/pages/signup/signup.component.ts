@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SignupService} from '../../services/signup.service';
-import {RegisterByTelRequest} from '../../models/register-by-tel-request';
+import {RegisterByTelRequest} from '../../models/auth/register-by-tel-request';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Router} from '@angular/router';
