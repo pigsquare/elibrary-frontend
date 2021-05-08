@@ -50,6 +50,8 @@ import { BorrowRecordComponent } from './pages/reader-home/borrow-record/borrow-
 import { SearchBookComponent } from './pages/search-book/search-book.component';
 import { BookDetailComponent } from './pages/book-detail/book-detail.component';
 import { LibGuideComponent } from './pages/lib-guide/lib-guide.component';
+import { FooterComponent } from './pages/layout/footer/footer.component';
+import { CommonInputDialogComponent } from './pages/layout/dialog/common-input-dialog/common-input-dialog.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +77,9 @@ import { LibGuideComponent } from './pages/lib-guide/lib-guide.component';
     BorrowRecordComponent,
     SearchBookComponent,
     BookDetailComponent,
-    LibGuideComponent
+    LibGuideComponent,
+    FooterComponent,
+    CommonInputDialogComponent
   ],
   imports: [
     BrowserModule,

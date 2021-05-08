@@ -5,6 +5,7 @@
   </div>
   <div>
     姓名：{{userProfile.name}}
+    <button mat-raised-button (click)="updateName()">修改姓名</button>
   </div>
   <div>
     电话：{{userProfile.tel}}
@@ -14,7 +15,7 @@
   </div>
   <div>
     邮箱：{{userProfile.email}}
-    <button mat-raised-button>修改邮箱</button>
+    <button mat-raised-button (click)="updateEmail()">修改邮箱</button>
   </div>
   <div>
     信用分：{{userProfile.credit}}
