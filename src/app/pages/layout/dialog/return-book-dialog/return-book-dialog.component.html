@@ -1,0 +1,32 @@
+<h1>还书流程</h1>
+<div mat-dialog-content>
+  <div>
+    <mat-horizontal-stepper #stepper [linear]="true">
+      <form [formGroup]="bookCodeGroup">
+        <mat-step [stepControl]="bookCodeGroup">
+          <ng-template matStepLabel>扫描图书条码</ng-template>
+          <mat-form-field>
+            <mat-label>
+              图书条码
+            </mat-label>
+            <input matInput placeholder="条码" required formControlName="bookCode"
+                   (keyup.enter)="stepper.next();onSubmit()" type="text">
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext type="button" (click)="onSubmit()">Next</button>
+          </div>
+        </mat-step>
+      </form>
+      <mat-step >
+        <ng-template matStepLabel>还书结果</ng-template>
+        <div *ngIf="borrowRes">
+          <span>还书结果：</span>
+          <span>{{borrowRes.message}}</span>
+        </div>
+        <button mat-button matStepperPrevious (click)="clearBook()">继续还书</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+</div>
+

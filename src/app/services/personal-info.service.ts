@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {UserProfileResponse} from '../models/user/user-profile-response';
 import {CommonResponse} from '../models/common-response';
 import {MailAddRequest} from '../models/user/mail-add-request';
+import {AuthTokenResponse} from '../models/auth/auth-token-response';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,8 @@ export class PersonalInfoService {
   }
   updateName(name: string): Observable<CommonResponse>{
     return this.http.patch<CommonResponse>(`/api/users/name/${name}`, undefined);
+  }
+  validateEmail(token: string): Observable<AuthTokenResponse>{
+    return this.http.get<AuthTokenResponse>(`/api/auth/validate/email/${token}`);
   }
 }

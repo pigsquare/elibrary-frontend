@@ -1,0 +1,46 @@
+<h1>办理借书卡</h1>
+<div mat-dialog-content>
+  <div>
+    <mat-horizontal-stepper #stepper [linear]="true">
+      <form [formGroup]="telFormGroup">
+        <mat-step [stepControl]="telFormGroup">
+          <ng-template matStepLabel>输入手机号</ng-template>
+          <mat-form-field>
+            <mat-label>
+              输入手机号
+            </mat-label>
+            <input matInput placeholder="手机号" required formControlName="tel"
+                   (keyup.enter)="stepper.next()" type="text">
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext type="button">Next</button>
+          </div>
+        </mat-step>
+      </form>
+      <form [formGroup]="cardFormGroup">
+        <mat-step [stepControl]="cardFormGroup">
+          <ng-template matStepLabel>读卡</ng-template>
+          <mat-form-field>
+            <mat-label>
+              卡号
+            </mat-label>
+            <input matInput placeholder="卡号" required formControlName="cardNo"
+                   (keyup.enter)="stepper.next();onSubmit()" type="text">
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext type="button" (click)="onSubmit()">Next</button>
+          </div>
+        </mat-step>
+      </form>
+      <mat-step >
+        <ng-template matStepLabel>办理结果</ng-template>
+        <div *ngIf="submitRes">
+          <span>处理结果：</span>
+          <span>{{submitRes.message}}</span>
+        </div>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+</div>
+

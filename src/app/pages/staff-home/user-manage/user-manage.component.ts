@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {BindCardDialogComponent} from '../../layout/dialog/bind-card-dialog/bind-card-dialog.component';
 
 @Component({
   selector: 'app-user-manage',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserManageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public dialog: MatDialog,
+  ) { }
 
   ngOnInit(): void {
+  }
+  openNewCardDialog(): void{
+    this.dialog.open(BindCardDialogComponent, {
+      width: '500px',
+    });
   }
 
 }
