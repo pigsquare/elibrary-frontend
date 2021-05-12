@@ -43,4 +43,9 @@ export class SearchBookComponent implements OnInit {
     });
     return;
   }
+  makeReservation(book: BookInfoResponse): void{
+    if (confirm(`确定要预约${book.name}吗？`)){
+      console.log(`预约${book.isbn}`);
+    }
+  }
 }
