@@ -12,7 +12,9 @@
     </mat-form-field>
     <mat-form-field class="search-container-box-input">
       <mat-label>搜索图书</mat-label>
-      <input matInput type="text" [(ngModel)]="value" (keyup.enter)="searchBook()">
+      <label>
+        <input matInput type="text" [(ngModel)]="value" (keyup.enter)="searchBook()">
+      </label>
       <button mat-button matSuffix mat-icon-button aria-label="Search" (click)="searchBook()">
         <mat-icon>search</mat-icon>
       </button>
@@ -22,5 +24,5 @@
 <div *ngFor="let book of resultList">
   {{book.isbn}},{{book.name}},{{book.author}},{{book.publisher}},{{book.indexNo}}
   <img src="{{book.imgUrl}}" alt="{{book.name}}">
-  <a>详情</a>，<a (click)="makeReservation(book)">预约</a>
+  <a routerLink="/book/{{book.isbn}}">详情</a>，<a (click)="makeReservation(book)">预约</a>
 </div>
