@@ -20,4 +20,10 @@ export class BorrowService {
   getHistoryList(): Observable<BorrowRecordResponse[]>{
     return this.http.get<BorrowRecordResponse[]>('/api/borrow-records/');
   }
+  getBorrowingList(): Observable<BorrowRecordResponse[]>{
+    return this.http.get<BorrowRecordResponse[]>('/api/borrow-records/borrowings');
+  }
+  renewBook(id: string): Observable<CommonResponse>{
+    return this.http.patch<CommonResponse>(`/api/borrow-records/${id}/renew`, undefined);
+  }
 }

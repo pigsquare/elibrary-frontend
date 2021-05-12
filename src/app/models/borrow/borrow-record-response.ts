@@ -13,7 +13,7 @@ export class BorrowRecordResponse{
   lastReturnDate: string;
   extend: boolean;
   returned: boolean;
-  returnedTime: string;
+  returnTime: string;
   lateFee: number;
   memo: string;
 }
