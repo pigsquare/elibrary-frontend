@@ -21,6 +21,6 @@
 </div>
 <div *ngFor="let book of resultList">
   {{book.isbn}},{{book.name}},{{book.author}},{{book.publisher}},{{book.indexNo}}
-  <img src="{{book.imgUrl}}">
+  <img src="{{book.imgUrl}}" alt="{{book.name}}">
   <a>详情</a>，<a (click)="makeReservation(book)">预约</a>
 </div>
