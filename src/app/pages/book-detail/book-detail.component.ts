@@ -50,4 +50,8 @@ export class BookDetailComponent implements OnInit {
       });
     }
   }
+  goBack(): void{
+    history.go(-1);
+  }
+
 }
