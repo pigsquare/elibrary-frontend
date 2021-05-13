@@ -14,3 +14,8 @@
   background: white;
   font-size: 110%;
 }
+
+
+::ng-deep mat-grid-tile.mat-grid-tile .mat-figure{
+  justify-content: left;
+}
