@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatSort} from '@angular/material/sort';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
+import {ReservationService} from '../../../services/reservation.service';
+import {PersonalReservationResponse} from '../../../models/reservation/personal-reservation-response';
 
 @Component({
   selector: 'app-reserve-book',
@@ -7,9 +13,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReserveBookComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  dataSource: MatTableDataSource<PersonalReservationResponse>;
+  dataSource2: MatTableDataSource<PersonalReservationResponse>;
+  displayedColumns: string[] = ['recordId', 'bookName', 'author', 'publisher',
+    'borrowTime', 'lastReturnDate', 'extend', 'lateFee', 'memo', 'renew'];
+  constructor(
+    private snackBar: MatSnackBar,
+    private reservationService: ReservationService,
+  ) { }
 
   ngOnInit(): void {
+    this.getData();
+  }
+  getData(): void{
+    this.reservationService.getCurrentReservations().subscribe(r => {
+      this.dataSource.data = r;
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+    }, () => {
+      this.snackBar.open('获取信息出现错误', undefined, {duration: 2000});
+    });
+    this.reservationService.getAllReservations().subscribe(r => {
+      this.dataSource2.data = r;
+      this.dataSource2.sort = this.sort;
+      this.dataSource2.paginator = this.paginator;
+    }, () => {
+      this.snackBar.open('获取信息出现错误', undefined, {duration: 2000});
+    });
   }
 
+  cancelReservation(id: string): void{
+    if (confirm('确定要取消预约吗？')){
+      this.reservationService.cancelReservation(id).subscribe(r => {
+        this.snackBar.open(r.message, undefined, {duration: 2000});
+        this.getData();
+      }, () => {
+        this.snackBar.open('出现错误', undefined, {duration: 2000});
+      });
+    }
+  }
 }
