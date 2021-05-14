@@ -50,6 +50,14 @@ import { BorrowRecordComponent } from './pages/reader-home/borrow-record/borrow-
 import { SearchBookComponent } from './pages/search-book/search-book.component';
 import { BookDetailComponent } from './pages/book-detail/book-detail.component';
 import { LibGuideComponent } from './pages/lib-guide/lib-guide.component';
+import { FooterComponent } from './pages/layout/footer/footer.component';
+import { CommonInputDialogComponent } from './pages/layout/dialog/common-input-dialog/common-input-dialog.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import { BorrowBookDialogComponent } from './pages/layout/dialog/borrow-book-dialog/borrow-book-dialog.component';
+import {A11yModule} from '@angular/cdk/a11y';
+import { BindCardDialogComponent } from './pages/layout/dialog/bind-card-dialog/bind-card-dialog.component';
+import { ReturnBookDialogComponent } from './pages/layout/dialog/return-book-dialog/return-book-dialog.component';
+import { ValidateEmailComponent } from './pages/layout/dialog/validate-email/validate-email.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +83,13 @@ import { LibGuideComponent } from './pages/lib-guide/lib-guide.component';
     BorrowRecordComponent,
     SearchBookComponent,
     BookDetailComponent,
-    LibGuideComponent
+    LibGuideComponent,
+    FooterComponent,
+    CommonInputDialogComponent,
+    BorrowBookDialogComponent,
+    BindCardDialogComponent,
+    ReturnBookDialogComponent,
+    ValidateEmailComponent
   ],
   imports: [
     BrowserModule,
@@ -104,6 +118,8 @@ import { LibGuideComponent } from './pages/lib-guide/lib-guide.component';
     MatTreeModule,
     MatProgressBarModule,
     MatGridListModule,
+    MatStepperModule,
+    A11yModule,
   ],
   providers: [
     MatSnackBar,

@@ -23,6 +23,7 @@ import {HoldingManageComponent} from './pages/staff-home/holding-manage/holding-
 import {SearchBookComponent} from './pages/search-book/search-book.component';
 import {BookDetailComponent} from './pages/book-detail/book-detail.component';
 import {LibGuideComponent} from './pages/lib-guide/lib-guide.component';
+import {ValidateEmailComponent} from './pages/layout/dialog/validate-email/validate-email.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -53,6 +54,7 @@ const routes: Routes = [
   {path: 'search', component: SearchBookComponent},
   {path: 'book/:isbn', component: BookDetailComponent},
   {path: 'guide', component: LibGuideComponent},
+  {path: 'verify/:token', component: ValidateEmailComponent},
   {path: '', component: HomepageComponent},
 ];
 

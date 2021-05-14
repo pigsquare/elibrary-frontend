@@ -1,1 +1,39 @@
 <p>person-info works!</p>
+<div *ngIf="userProfile">
+  <div>
+    用户名：{{userProfile.username}}
+  </div>
+  <div>
+    姓名：{{userProfile.name}}
+    <button mat-raised-button (click)="updateName()">修改姓名</button>
+  </div>
+  <div>
+    电话：{{userProfile.tel}}
+  </div>
+  <div>
+    借阅证号：{{userProfile.cardNo}}
+  </div>
+  <div>
+    邮箱：{{userProfile.email}}
+    <button mat-raised-button (click)="updateEmail()">修改邮箱</button>
+  </div>
+  <div>
+    信用分：{{userProfile.credit}}
+  </div>
+  <div>
+    账户余额：{{userProfile.balance}}
+  </div>
+  <div>
+    当前等级：{{userProfile.grade}}
+  </div>
+  <div>
+    最大借阅数：{{userProfile.maxHoldings}}
+  </div>
+  <div>
+    借阅期限：{{userProfile.maxBorrowTime}}
+  </div>
+  <div>
+    预约最长保留期限：{{userProfile.maxReserveTime}}
+  </div>
+
+</div>

@@ -3,6 +3,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {BookSearchService} from '../../services/book-search.service';
 import {BookSearchRequest} from '../../models/book/book-search-request';
 import {BookInfoResponse} from '../../models/book/book-info-response';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {ReservationService} from '../../services/reservation.service';
 
 @Component({
   selector: 'app-search-book',
@@ -18,6 +20,8 @@ export class SearchBookComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private bookSearchService: BookSearchService,
+    private snackBar: MatSnackBar,
+    private reservationService: ReservationService,
   ) { }
 
   ngOnInit(): void {
@@ -42,5 +46,14 @@ export class SearchBookComponent implements OnInit {
       this.resultList = r;
     });
     return;
+  }
+  makeReservation(book: BookInfoResponse): void{
+    if (confirm(`确定要预约《${book.name}》吗？`)){
+      this.reservationService.makeReservation(book.isbn).subscribe(r => {
+        this.snackBar.open(r.message, undefined, {duration: 2000});
+      }, () => {
+        this.snackBar.open('预约失败', undefined, {duration: 2000});
+      });
+    }
   }
 }

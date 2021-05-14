@@ -1,0 +1,12 @@
+<h1>请输入{{data.showInfo}}</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>{{data.showInfo}}</mat-label>
+    <input matInput [(ngModel)]="data.resData" type="text">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>确认</button>
+  <button mat-button (click)="onNoClick()">取消</button>
+</div>

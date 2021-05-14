@@ -1,0 +1,36 @@
+.search-container {
+  width: 100%;
+  display: table;
+  text-align: center;
+}
+
+.search-container-box{
+  width: 100%;
+  font-size: 120%;
+  vertical-align: middle;
+  display: table;
+}
+.mat-grid-tile {
+  background: white;
+  font-size: 110%;
+}
+
+
+::ng-deep mat-grid-tile.mat-grid-tile .mat-figure{
+  justify-content: left;
+}
+
+.bookcard{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.card-item{
+  flex: 1;
+  width: 33.3%;
+  min-width: 33.3%;
+  max-width: 33.3%;
+}

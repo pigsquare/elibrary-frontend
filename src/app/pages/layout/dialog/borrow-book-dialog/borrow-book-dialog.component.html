@@ -1,0 +1,47 @@
+<h1>借书流程</h1>
+<div mat-dialog-content>
+  <div>
+    <mat-horizontal-stepper #stepper [linear]="true">
+      <form [formGroup]="cardFormGroup">
+        <mat-step [stepControl]="cardFormGroup">
+          <ng-template matStepLabel>请刷借书证</ng-template>
+          <mat-form-field>
+            <mat-label>
+              请刷卡
+            </mat-label>
+            <input matInput placeholder="卡号" required formControlName="cardNo"
+                   (keyup.enter)="stepper.next()" type="text">
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext type="button">Next</button>
+          </div>
+        </mat-step>
+      </form>
+      <form [formGroup]="bookCodeGroup">
+        <mat-step [stepControl]="bookCodeGroup">
+          <ng-template matStepLabel>扫描图书条码</ng-template>
+          <mat-form-field>
+            <mat-label>
+              图书条码
+            </mat-label>
+            <input matInput placeholder="条码" required formControlName="bookCode"
+                   (keyup.enter)="stepper.next();onShowBookInput()" type="text">
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext type="button" (click)="onShowBookInput()">Next</button>
+          </div>
+        </mat-step>
+      </form>
+      <mat-step >
+        <ng-template matStepLabel>借阅结果</ng-template>
+        <div *ngIf="borrowRes">
+          <span>借阅结果：</span>
+          <span>{{borrowRes.message}}</span>
+        </div>
+        <button mat-button matStepperPrevious (click)="clearBook()">继续借书</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+</div>
+

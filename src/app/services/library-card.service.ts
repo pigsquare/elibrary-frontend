@@ -7,13 +7,12 @@ import {CommonResponse} from '../models/common-response';
 @Injectable({
   providedIn: 'root'
 })
-export class LibraryCardServiceService {
+export class LibraryCardService {
 
   constructor(
     private http: HttpClient,
   ) { }
-
-  submitCardInfo(req: LibraryCardRequest): Observable<CommonResponse>{
-    return this.http.post<CommonResponse>('/api/users/current-user/card/', req);
+  bindLibraryCard(req: LibraryCardRequest): Observable<CommonResponse>{
+    return this.http.post<CommonResponse>('/api/users/current-user/card', req);
   }
 }

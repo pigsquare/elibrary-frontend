@@ -9,4 +9,5 @@ export class BookInfoResponse {
   author: string;
   publisher: string;
   indexNo: string;
+  imgUrl: string;
 }

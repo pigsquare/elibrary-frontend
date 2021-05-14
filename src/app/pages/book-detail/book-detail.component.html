@@ -1,1 +1,24 @@
-<p>book-detail works!</p>
+<p>图书详情</p>
+<img src="{{bookInfo.imgUrl}}" alt="{{bookInfo.name}}">
+<div>{{bookInfo.name}}</div>
+<div>作者： {{bookInfo.author}}</div>
+<div>出版社：{{bookInfo.publisher}}</div>
+<div>出版时间：{{bookInfo.publishDate}}</div>
+<div>主题：{{bookInfo.keywords}}</div>
+<div>载体形态：{{bookInfo.pageInfo}}</div>
+<div>ISBN：{{bookInfo.isbn}}</div>
+<div>中图分类号：{{bookInfo.classifyCode}}</div>
+<div>索书号：{{bookInfo.indexNo}}</div>
+<div>内容提要：{{bookInfo.description}}</div>
+<div>价格：{{bookInfo.price}}</div>
+<div><button (click)="makeReservation(bookInfo)">预约</button></div>
+<div>复本/藏书记录</div>
+<div *ngIf="holdings">
+  编号，条码号，当前状态
+  <div *ngFor="let holding of holdings">
+    {{holding.id}},{{holding.barcode}},{{holding.status}}
+  </div>
+</div>
+<div>
+  <a (click)="goBack()">返回</a>
+</div>
