@@ -5,6 +5,7 @@ import {HoldingInfoResponse} from '../../models/holding/holding-info-response';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {IsbnInfoResponse} from '../../models/book/isbn-info-response';
 import {ReservationService} from '../../services/reservation.service';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-book-detail',

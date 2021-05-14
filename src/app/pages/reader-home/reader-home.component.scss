@@ -1,0 +1,14 @@
+.mat-toolbar{
+  width:100%;
+  min-height: 10%;
+  display: table;
+  text-align: center;
+}
+
+.button-row {
+  padding-left:20%;
+  padding-right:20%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

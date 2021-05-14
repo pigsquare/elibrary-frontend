@@ -1,39 +1,54 @@
 <p>person-info works!</p>
-<div *ngIf="userProfile">
-  <div>
-    用户名：{{userProfile.username}}
-  </div>
-  <div>
-    姓名：{{userProfile.name}}
-    <button mat-raised-button (click)="updateName()">修改姓名</button>
-  </div>
-  <div>
-    电话：{{userProfile.tel}}
-  </div>
-  <div>
-    借阅证号：{{userProfile.cardNo}}
-  </div>
-  <div>
-    邮箱：{{userProfile.email}}
-    <button mat-raised-button (click)="updateEmail()">修改邮箱</button>
-  </div>
-  <div>
-    信用分：{{userProfile.credit}}
-  </div>
-  <div>
-    账户余额：{{userProfile.balance}}
-  </div>
-  <div>
-    当前等级：{{userProfile.grade}}
-  </div>
-  <div>
-    最大借阅数：{{userProfile.maxHoldings}}
-  </div>
-  <div>
-    借阅期限：{{userProfile.maxBorrowTime}}
-  </div>
-  <div>
-    预约最长保留期限：{{userProfile.maxReserveTime}}
-  </div>
 
+<div class="bookcard">
+  <div class="card-item0">
+
+  </div>
+  <div class="card-item0">
+    <div *ngIf="userProfile">
+      <div style="font-size: 120%;">
+        用户名：{{userProfile.username}}
+      </div>
+      <div style="font-size: 120%;">
+        姓名：{{userProfile.name}}
+      </div>
+      <div style="font-size: 120%;">
+        电话：{{userProfile.tel}}
+      </div>
+      <div style="font-size: 120%;">
+        借阅证号：{{userProfile.cardNo}}
+      </div>
+      <div style="font-size: 120%;">
+        邮箱：{{userProfile.email}}
+      </div>
+      <div style="font-size: 120%;">
+        信用分：{{userProfile.credit}}
+      </div>
+      <div style="font-size: 120%;">
+        账户余额：{{userProfile.balance}}
+      </div>
+      <div style="font-size: 120%;">
+        当前等级：{{userProfile.grade}}
+      </div>
+      <div style="font-size: 120%;">
+        最大借阅数：{{userProfile.maxHoldings}}
+      </div>
+      <div style="font-size: 120%;">
+        借阅期限：{{userProfile.maxBorrowTime}}
+      </div>
+      <div style="font-size: 120%;">
+        预约最长保留期限：{{userProfile.maxReserveTime}}
+      </div>
+    </div>
+  </div>
+  <div class="card-item0">
+    <div>
+      <button mat-raised-button (click)="updateName()">修改姓名</button>
+    </div>
+      <br>
+    <div>
+      <button mat-raised-button (click)="updateEmail()">修改邮箱</button>
+    </div>
+  </div>
 </div>
+

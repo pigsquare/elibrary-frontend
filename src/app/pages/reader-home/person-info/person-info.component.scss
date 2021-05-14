@@ -1,0 +1,13 @@
+.bookcard{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+.card-item0{
+  flex: 1;
+  width: 33%;
+  min-width: 33%;
+  max-width: 33%;
+}
