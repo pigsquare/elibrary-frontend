@@ -17,8 +17,10 @@ export class ReserveBookComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   dataSource: MatTableDataSource<PersonalReservationResponse>;
   dataSource2: MatTableDataSource<PersonalReservationResponse>;
-  displayedColumns: string[] = ['recordId', 'bookName', 'author', 'publisher',
-    'borrowTime', 'lastReturnDate', 'extend', 'lateFee', 'memo', 'renew'];
+  displayedColumns: string[] = ['id', 'bookName', 'author', 'publisher',
+    'submitTime', 'status', 'barcode', 'lastDate', 'memo', 'option'];
+  displayedColumns2: string[] = ['id', 'bookName', 'author', 'publisher',
+    'submitTime', 'status', 'barcode', 'lastDate', 'memo'];
   constructor(
     private snackBar: MatSnackBar,
     private reservationService: ReservationService,
@@ -44,9 +46,9 @@ export class ReserveBookComponent implements OnInit {
     });
   }
 
-  cancelReservation(id: string): void{
-    if (confirm('确定要取消预约吗？')){
-      this.reservationService.cancelReservation(id).subscribe(r => {
+  cancelReservation(reservationResponse: PersonalReservationResponse): void{
+    if (confirm(`确定要取消《${reservationResponse.bookName}》的预约吗？`)){
+      this.reservationService.cancelReservation(reservationResponse.id.toString()).subscribe(r => {
         this.snackBar.open(r.message, undefined, {duration: 2000});
         this.getData();
       }, () => {

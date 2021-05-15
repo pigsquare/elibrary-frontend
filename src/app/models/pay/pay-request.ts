@@ -5,7 +5,7 @@ import {Injectable} from '@angular/core';
 })
 export class PayRequest {
   barcode: string;
-  tel: string;
+  cardNo: string;
   total: number;
 }
 
