@@ -17,9 +17,9 @@ export class ReservationService {
     return this.http.delete<CommonResponse>(`/api/reservations/${id}`);
   }
   getAllReservations(): Observable<PersonalReservationResponse[]>{
-    return this.http.get<PersonalReservationResponse[]>('/api/reservations/xxx');
+    return this.http.get<PersonalReservationResponse[]>('/api/reservations/user/all');
   }
   getCurrentReservations(): Observable<PersonalReservationResponse[]>{
-    return this.http.get<PersonalReservationResponse[]>('/api/reservations/xxy');
+    return this.http.get<PersonalReservationResponse[]>('/api/reservations/user/reserved');
   }
 }

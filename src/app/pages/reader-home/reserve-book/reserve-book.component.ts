@@ -14,7 +14,8 @@ import {PersonalReservationResponse} from '../../../models/reservation/personal-
 export class ReserveBookComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild('matPaginator') paginator: MatPaginator;
+  @ViewChild('matPaginator2') paginator2: MatPaginator;
   dataSource: MatTableDataSource<PersonalReservationResponse>;
   dataSource2: MatTableDataSource<PersonalReservationResponse>;
   displayedColumns: string[] = ['id', 'bookName', 'author', 'publisher',
@@ -31,16 +32,15 @@ export class ReserveBookComponent implements OnInit {
   }
   getData(): void{
     this.reservationService.getCurrentReservations().subscribe(r => {
-      this.dataSource.data = r;
-      this.dataSource.sort = this.sort;
+      this.dataSource = new MatTableDataSource<PersonalReservationResponse>(r);
       this.dataSource.paginator = this.paginator;
     }, () => {
       this.snackBar.open('获取信息出现错误', undefined, {duration: 2000});
     });
     this.reservationService.getAllReservations().subscribe(r => {
-      this.dataSource2.data = r;
+      this.dataSource2 = new MatTableDataSource<PersonalReservationResponse>(r);
       this.dataSource2.sort = this.sort;
-      this.dataSource2.paginator = this.paginator;
+      this.dataSource2.paginator = this.paginator2;
     }, () => {
       this.snackBar.open('获取信息出现错误', undefined, {duration: 2000});
     });
@@ -49,7 +49,7 @@ export class ReserveBookComponent implements OnInit {
   cancelReservation(reservationResponse: PersonalReservationResponse): void{
     if (confirm(`确定要取消《${reservationResponse.bookName}》的预约吗？`)){
       this.reservationService.cancelReservation(reservationResponse.id.toString()).subscribe(r => {
-        this.snackBar.open(r.message, undefined, {duration: 2000});
+        this.snackBar.open(r.args ? '取消成功' : '取消失败', undefined, {duration: 2000});
         this.getData();
       }, () => {
         this.snackBar.open('出现错误', undefined, {duration: 2000});
