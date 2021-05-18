@@ -24,6 +24,8 @@ import {SearchBookComponent} from './pages/search-book/search-book.component';
 import {BookDetailComponent} from './pages/book-detail/book-detail.component';
 import {LibGuideComponent} from './pages/lib-guide/lib-guide.component';
 import {ValidateEmailComponent} from './pages/layout/dialog/validate-email/validate-email.component';
+import {VocationComponent} from './pages/admin-home/vocation/vocation.component';
+import {ReserveShelfComponent} from './pages/admin-home/reserve-shelf/reserve-shelf.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -50,6 +52,8 @@ const routes: Routes = [
       {path: '', component: HomepageComponent},
       {path: 'staff_manage', component: StaffManageComponent},
       {path: 'reader_grade', component: ReaderGradeManageComponent},
+      {path: 'vocation', component: VocationComponent},
+      {path: 'reserve-shelf', component: ReserveShelfComponent},
     ]},
   {path: 'search', component: SearchBookComponent},
   {path: 'book/:isbn', component: BookDetailComponent},

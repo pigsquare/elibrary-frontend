@@ -58,6 +58,9 @@ import {A11yModule} from '@angular/cdk/a11y';
 import { BindCardDialogComponent } from './pages/layout/dialog/bind-card-dialog/bind-card-dialog.component';
 import { ReturnBookDialogComponent } from './pages/layout/dialog/return-book-dialog/return-book-dialog.component';
 import { ValidateEmailComponent } from './pages/layout/dialog/validate-email/validate-email.component';
+import { VocationComponent } from './pages/admin-home/vocation/vocation.component';
+import { ReserveShelfComponent } from './pages/admin-home/reserve-shelf/reserve-shelf.component';
+import { ScanBarcodeComponent } from './pages/layout/dialog/scan-barcode/scan-barcode.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +92,10 @@ import { ValidateEmailComponent } from './pages/layout/dialog/validate-email/val
     BorrowBookDialogComponent,
     BindCardDialogComponent,
     ReturnBookDialogComponent,
-    ValidateEmailComponent
+    ValidateEmailComponent,
+    VocationComponent,
+    ReserveShelfComponent,
+    ScanBarcodeComponent
   ],
   imports: [
     BrowserModule,

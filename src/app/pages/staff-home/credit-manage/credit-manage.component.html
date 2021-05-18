@@ -3,7 +3,25 @@
 <mat-form-field>
   <mat-label>卡号</mat-label>
   <label>
-    <input matInput [(ngModel)]="cardNo" type="text">
+    <input matInput [(ngModel)]="cardNo" type="text" (keyup.enter)="refreshData()">
   </label>
 </mat-form-field>
-
+<button mat-raised-button (click)="refreshData()">查询信息</button>
+<div *ngIf="userProfile">
+  姓名：{{userProfile.name}}, 余额：{{userProfile.balance}}
+  <button *ngIf="userProfile.balance<0" (click)="patOwe()">缴纳欠款</button>
+  <button (click)="recharge()">充值</button>
+  <div *ngIf="borrowRecordResponses">
+    <div *ngFor="let borrowRecord of borrowRecordResponses">
+      {{borrowRecord.bookName}}, {{borrowRecord.author}}, {{borrowRecord.barcode}}, {{borrowRecord.borrowTime}},
+      <button (click)="compensateBook(borrowRecord)">丢失赔书</button>
+      <button (click)="compensateMoney(borrowRecord.recordId)">仅赔款</button>
+    </div>
+  </div>
+</div>
+<div hidden>
+  <div id="print-content">
+    <div style="font-size: 60%;">&nbsp;&nbsp;{{bookName}}</div>
+    <svg id="barcode"></svg>
+  </div>
+</div>

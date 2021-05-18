@@ -1,0 +1,15 @@
+<h1>扫描付款码</h1>
+<div mat-dialog-content>
+  <div>
+    放一张扫码图片
+  </div>
+  <mat-form-field>
+    <mat-label>付款码</mat-label>
+    <input matInput [(ngModel)]="data.resData" type="text" (keyup.enter)="dialogRef.close(data)">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+
+  <button mat-button [mat-dialog-close]="data">确认</button>
+  <button mat-button (click)="onNoClick()">取消</button>
+</div>
