@@ -29,4 +29,7 @@ export class BorrowService {
   getBorrowingListByAdmin(card: string): Observable<BorrowRecordResponse[]>{
     return this.http.get<BorrowRecordResponse[]>(`/api/borrow-records/users/${card}`);
   }
+  delayLastReturnDateForVacation(req): Observable<CommonResponse>{
+    return this.http.patch<CommonResponse>(`/api/borrow-records/borrowings`, req);
+  }
 }

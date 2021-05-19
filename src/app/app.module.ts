@@ -61,6 +61,8 @@ import { ValidateEmailComponent } from './pages/layout/dialog/validate-email/val
 import { VocationComponent } from './pages/admin-home/vocation/vocation.component';
 import { ReserveShelfComponent } from './pages/admin-home/reserve-shelf/reserve-shelf.component';
 import { ScanBarcodeComponent } from './pages/layout/dialog/scan-barcode/scan-barcode.component';
+import {MatDatepicker, MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -126,6 +128,8 @@ import { ScanBarcodeComponent } from './pages/layout/dialog/scan-barcode/scan-ba
     MatGridListModule,
     MatStepperModule,
     A11yModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [
     MatSnackBar,
