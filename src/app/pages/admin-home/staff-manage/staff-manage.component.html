@@ -1,1 +1,51 @@
 <p>staff-manage works!</p>
+<h2>员工管理</h2>
+<div *ngIf="admins">
+  员工列表
+  <table>
+    <tr>
+      <th>编号</th><th>姓名</th><th>电话</th><th>职称</th><th>工资</th><th>操作</th>
+    </tr>
+    <tr *ngFor="let admin of admins">
+      <td>{{admin.id}}</td>
+      <td>{{admin.name}}</td>
+      <td>{{admin.tel}}</td>
+      <td>{{admin.title}}</td>
+      <td>{{admin.salary}}</td>
+      <td><button (click)="onClickEdit(admin)">编辑</button><button (click)="delAdmin(admin.tel)">删除</button></td>
+    </tr>
+  </table>
+</div>
+<div *ngIf="openAdd">
+  编辑管理员
+  <label>
+    电话：
+    <input [(ngModel)]="updateAdminInfo.tel">
+  </label>
+  <label>
+    职称：
+    <input [(ngModel)]="updateAdminInfo.title">
+  </label>
+  <label>
+    工资：
+    <input [(ngModel)]="updateAdminInfo.salary">
+  </label>
+  <button (click)="updateAdmin()">更新</button>
+</div>
+
+<div>
+  新增管理员
+  <label>
+    电话：
+    <input [(ngModel)]="addAdminInfo.tel">
+  </label>
+  <label>
+    职称：
+    <input [(ngModel)]="addAdminInfo.title">
+  </label>
+  <label>
+    工资：
+    <input [(ngModel)]="addAdminInfo.salary">
+  </label>
+  <button (click)="addAdmin()">新增</button>
+</div>
