@@ -63,6 +63,7 @@ import { ReserveShelfComponent } from './pages/admin-home/reserve-shelf/reserve-
 import { ScanBarcodeComponent } from './pages/layout/dialog/scan-barcode/scan-barcode.component';
 import {MatDatepicker, MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import {MatTab, MatTabGroup, MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -130,6 +131,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     A11yModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatTabsModule,
   ],
   providers: [
     MatSnackBar,

@@ -1,4 +1,3 @@
-<p>credit-manage works!</p>
 <div>请刷借阅证</div>
 <mat-form-field>
   <mat-label>卡号</mat-label>
@@ -7,6 +6,7 @@
   </label>
 </mat-form-field>
 <button mat-raised-button (click)="refreshData()">查询信息</button>
+
 <div *ngIf="userProfile">
   姓名：{{userProfile.name}}, 余额：{{userProfile.balance}}
   <button *ngIf="userProfile.balance<0" (click)="patOwe()">缴纳欠款</button>

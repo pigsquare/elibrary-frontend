@@ -1,86 +1,121 @@
-<p>holding-manage works!</p>
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="图书入库管理">
+    <div class="container">
+      <div class="bookcard">
+        <div class="card-item-pic">
+          <br>
+          <img style="width: 25%;" src="./assets/images/title_barcode.png"/>
+        </div>
+        <div class="card-item-pic">
+          <br>
+          <img style="width: 30%;" src="./assets/images/title_book.png"/>
+        </div>
+      </div>
+    </div>
 
-<div>
-  图书入库管理
-</div>
-<form (ngSubmit)="getBarcode()">
-  <mat-form-field>
-    <mat-label>isbn</mat-label>
-    <label>
-      <input [(ngModel)]="getBarcodeInput" name="first" matInput type="text">
-    </label>
-  </mat-form-field>
-  <button mat-raised-button>生成条形码</button>
-</form>
+    <div class="container">
+      <div class="bookcard">
+        <div class="card-item-pic">
 
-<div>
-  <div id="print-content">
-    <div style="font-size: 60%;">&nbsp;&nbsp;{{bookName}}</div>
-    <svg id="barcode"></svg>
-  </div>
-  <button (click)="printBarcode()" mat-raised-button>打印条码</button>
-</div>
+          <form (ngSubmit)="getBarcode()">
+            <mat-form-field>
+              <mat-label>isbn</mat-label>
+              <label>
+                <input [(ngModel)]="getBarcodeInput" name="first" matInput type="text">
+              </label>
+            </mat-form-field>
+            <br>
+            <button mat-raised-button color="primary" style="font-size: 120%">
+              生成条形码
+            </button>
+          </form>
+          <div [hidden]="barcode==''">
+            <div id="print-content" >
+              <div style="font-size: 60%;">&nbsp;&nbsp;{{bookName}}</div>
+              <svg id="barcode"></svg>
+            </div>
+            <button (click)="printBarcode()" mat-raised-button color="primary" style="font-size: 120%">
+              打印条形码
+            </button>
+          </div>
+
+        </div>
+        <div class="card-item-pic">
+
+          <form>
+            <mat-form-field>
+              <mat-label>isbn</mat-label>
+              <label>
+                <input type="text" [(ngModel)]="getBarcodeInput" name="first" matInput>
+              </label>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <mat-label>条码号</mat-label>
+              <label>
+                <input matInput type="text" [(ngModel)]="barcode" name="second">
+              </label>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <mat-label>设置状态</mat-label>
+              <mat-select [(ngModel)]="status" name="third">
+                <mat-option value="AVAILABLE">可借</mat-option>
+                <mat-option value="UNAVAILABLE">不可借</mat-option>
+                <mat-option value="DAMAGED">损坏</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br>
+            <button mat-raised-button color="primary" style="font-size: 120%" (click)="addHolding()">
+              录入图书
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
 
 
-<form>
-  <mat-form-field>
-    <mat-label>isbn</mat-label>
-    <label>
-      <input type="text" [(ngModel)]="getBarcodeInput" name="first" matInput>
-    </label>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>条码号</mat-label>
-    <label>
-      <input matInput type="text" [(ngModel)]="barcode" name="second">
-    </label>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>设置状态</mat-label>
-    <mat-select [(ngModel)]="status" name="third">
-      <mat-option value="AVAILABLE">可借</mat-option>
-      <mat-option value="UNAVAILABLE">不可借</mat-option>
-      <mat-option value="DAMAGED">损坏</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <button mat-raised-button (click)="addHolding()">录入图书</button>
-</form>
+  </mat-tab>
 
-<div>
-  图书状态修改
-</div>
-<div>
-  <mat-form-field>
-    <mat-label>条码号</mat-label>
-    <label>
-      <input matInput type="text" [(ngModel)]="updateBarcode">
-    </label>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>设置状态</mat-label>
-    <mat-select [(ngModel)]="updateStatus">
-      <mat-option value="AVAILABLE">可借</mat-option>
-      <mat-option value="UNAVAILABLE">不可借</mat-option>
-      <mat-option value="DAMAGED">损坏</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <button mat-raised-button (click)="updateHoldingStatus()">修改</button>
-</div>
+  <mat-tab label="图书状态修改">
+    <div class="container">
+      <img style="width: 15%;" src="./assets/images/pic_barcode.png"/>
+      <br>
+      <mat-form-field>
+        <mat-label>条码号</mat-label>
+        <label>
+          <input matInput type="text" [(ngModel)]="updateBarcode">
+        </label>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>设置状态</mat-label>
+        <mat-select [(ngModel)]="updateStatus">
+          <mat-option value="AVAILABLE">可借</mat-option>
+          <mat-option value="UNAVAILABLE">不可借</mat-option>
+          <mat-option value="DAMAGED">损坏</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="updateHoldingStatus()">修改</button>
+    </div>
+  </mat-tab>
 
-<div>
-  在库图书查询
-</div>
-<div>
-  <mat-form-field>
-    <mat-label>isbn</mat-label>
-    <label>
-      <input [(ngModel)]="getHoldingIsbn" matInput type="text">
-    </label>
-  </mat-form-field>
-  <button mat-raised-button (click)="getHoldingsByIsbn()">查询</button>
-</div>
-<div *ngIf="holdingInfo">
-  <div *ngFor="let holding of holdingInfo">
-    {{holding.id}},{{holding.isbn}},{{holding.barcode}},{{holding.status}}
-  </div>
-</div>
+  <mat-tab label="在库图书查询">
+    <div class="container">
+      <br>
+      <img style="width: 10%;" src="./assets/images/pic_search.png"/>
+      <br>
+      <mat-form-field>
+        <mat-label>isbn</mat-label>
+        <label>
+          <input [(ngModel)]="getHoldingIsbn" matInput type="text">
+        </label>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="getHoldingsByIsbn()">查询</button>
+    </div>
+    <div *ngIf="holdingInfo">
+      <div *ngFor="let holding of holdingInfo">
+        {{holding.id}},{{holding.isbn}},{{holding.barcode}},{{holding.status}}
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
