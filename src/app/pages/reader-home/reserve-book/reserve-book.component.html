@@ -11,7 +11,7 @@
           <td mat-cell *matCellDef="let element"> {{element.bookName}} </td>
         </ng-container>
         <ng-container matColumnDef="author">
-          <th mat-header-cell *matHeaderCellDef> 作者 </th>
+          <th mat-header-cell *matHeaderCellDef  style="width: 100px"> 作者 </th>
           <td mat-cell *matCellDef="let element"> {{element.author}} </td>
         </ng-container>
         <ng-container matColumnDef="publisher">
@@ -45,7 +45,7 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
-      <mat-paginator #matPaginator [pageSizeOptions]="[20, 5, 10, 50]" showFirstLastButtons></mat-paginator>
+      <mat-paginator #matPaginator [pageSizeOptions]="[5, 10, 20, 50]" showFirstLastButtons></mat-paginator>
     </div>
   </mat-tab>
   <mat-tab label="全部预约记录">
@@ -60,7 +60,7 @@
           <td mat-cell *matCellDef="let element"> {{element.bookName}} </td>
         </ng-container>
         <ng-container matColumnDef="author">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> 作者 </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header  style="width: 100px"> 作者 </th>
           <td mat-cell *matCellDef="let element"> {{element.author}} </td>
         </ng-container>
         <ng-container matColumnDef="publisher">
@@ -90,7 +90,7 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
       </table>
-      <mat-paginator #matPaginator2 [pageSizeOptions]="[20, 5, 10, 50]" showFirstLastButtons></mat-paginator>
+      <mat-paginator #matPaginator2 [pageSizeOptions]="[10, 5, 20, 50]" showFirstLastButtons></mat-paginator>
     </div>
   </mat-tab>
 </mat-tab-group>
