@@ -31,7 +31,6 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'reader', component: ReaderHomeComponent, canActivate: [ReaderGuard], canActivateChild: [ReaderGuard], children: [
-      {path: '', component: HomepageComponent},
       {path: 'record', component: BorrowRecordComponent},
       {path: 'renew', component: RenewBookComponent},
       {path: 'reserve', component: ReserveBookComponent},
@@ -39,7 +38,6 @@ const routes: Routes = [
     ]},
   {path: 'staff', component: StaffHomeComponent,
   canActivate: [ReaderGuard, StaffGuard], canActivateChild: [ReaderGuard, StaffGuard], children: [
-      {path: '', component: HomepageComponent},
       {path: 'user_service', component: UserManageComponent},
       {path: 'book_manage', component: BookManageComponent},
       {path: 'credit', component: CreditManageComponent},
@@ -49,7 +47,6 @@ const routes: Routes = [
     },
   {path: 'admin', component: AdminHomeComponent,
   canActivate: [ReaderGuard, AdminGuard], canActivateChild: [ReaderGuard, AdminGuard], children: [
-      {path: '', component: HomepageComponent},
       {path: 'staff_manage', component: StaffManageComponent},
       {path: 'reader_grade', component: ReaderGradeManageComponent},
       {path: 'vocation', component: VocationComponent},
