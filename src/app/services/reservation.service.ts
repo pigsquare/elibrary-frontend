@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {CommonResponse} from '../models/common-response';
 import {PersonalReservationResponse} from '../models/reservation/personal-reservation-response';
+import {LibraryReservationResponse} from '../models/reservation/library-reservation-response';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +22,8 @@ export class ReservationService {
   }
   getCurrentReservations(): Observable<PersonalReservationResponse[]>{
     return this.http.get<PersonalReservationResponse[]>('/api/reservations/user/reserved');
+  }
+  getLibraryReservations(): Observable<LibraryReservationResponse[]>{
+    return this.http.get<LibraryReservationResponse[]>('/api/reservations/reserved-holdings');
   }
 }
