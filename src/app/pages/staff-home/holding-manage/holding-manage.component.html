@@ -113,9 +113,20 @@
       <button mat-raised-button color="primary" (click)="getHoldingsByIsbn()">查询</button>
     </div>
     <div *ngIf="holdingInfo">
-      <div *ngFor="let holding of holdingInfo">
-        {{holding.id}},{{holding.isbn}},{{holding.barcode}},{{holding.status}}
-      </div>
+      <table class="mat-table" style="width: 100%; text-align: center">
+        <tr>
+          <th>编号</th>
+          <th>isbn</th>
+          <th>条码号</th>
+          <th>状态</th>
+        </tr>
+        <tr *ngFor="let holding of holdingInfo">
+          <td>{{holding.id}}</td>
+          <td>{{holding.isbn}}</td>
+          <td>{{holding.barcode}}</td>
+          <td>{{holding.status}}</td>
+        </tr>
+      </table>
     </div>
   </mat-tab>
 </mat-tab-group>

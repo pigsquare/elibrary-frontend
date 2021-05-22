@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
 <div class="panel panel-default">
-  <div class="panel-heading">丢书/损坏处理</div>
+  <h2 class="panel-heading">丢书/损坏处理</h2>
   <div class="panel-body" style="text-align: center">
-    <div style="font-family:黑体;font-size: larger">请刷借阅证</div>
+    <div style="font-family:黑体,serif;font-size: larger">请刷借阅证</div>
     <mat-form-field>
       <mat-label>卡号</mat-label>
       <label>
@@ -13,16 +13,34 @@
     <button mat-raised-button (click)="refreshData()" color="accent" style="margin-left: 20px">查询信息</button>
 
     <div *ngIf="userProfile">
-      姓名：{{userProfile.name}}，余额：{{userProfile.balance.toFixed(2)}}元
+      <div><strong>
+        姓名：{{userProfile.name}}，余额：{{userProfile.balance.toFixed(2)}}元
+      </strong>
+        <button *ngIf="userProfile.balance<0" (click)="patOwe()" mat-raised-button color="primary" style="margin: 10px auto">缴纳欠款</button><br>
+        <button (click)="recharge()" mat-raised-button color="primary">充值</button>
+      </div>
       <br>
-      <button *ngIf="userProfile.balance<0" (click)="patOwe()" mat-raised-button color="primary" style="margin: 10px auto">缴纳欠款</button><br>
-      <button (click)="recharge()" mat-raised-button color="primary">充值</button>
       <div *ngIf="borrowRecordResponses">
-        <div *ngFor="let borrowRecord of borrowRecordResponses">
-          {{borrowRecord.bookName}}, {{borrowRecord.author}}, {{borrowRecord.barcode}}, {{borrowRecord.borrowTime}},
-          <button (click)="compensateBook(borrowRecord)" mat-raised-button color="primary">丢失赔书</button>
-          <button (click)="compensateMoney(borrowRecord.recordId)" mat-raised-button color="primary">仅赔款</button>
-        </div>
+        <table style=" width: 100%; align-content: center; align-items: center">
+          <caption style="margin-bottom: 10px"><strong>借出图书列表</strong></caption>
+          <tr>
+            <th style="text-align: center">书名</th>
+            <th style="text-align: center">作者</th>
+            <th style="text-align: center">条码号</th>
+            <th style="text-align: center">借出时间</th>
+            <th style="text-align: center">丢失处理</th>
+          </tr>
+          <tr *ngFor="let borrowRecord of borrowRecordResponses">
+            <td>{{borrowRecord.bookName}}</td>
+            <td>{{borrowRecord.author}}</td>
+            <td>{{borrowRecord.barcode}}</td>
+            <td>{{borrowRecord.borrowTime}}</td>
+            <td>
+              <button (click)="compensateBook(borrowRecord)" mat-raised-button >丢失赔书</button>
+              <button (click)="compensateMoney(borrowRecord.recordId)" mat-raised-button >仅赔款</button>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
     <div hidden>

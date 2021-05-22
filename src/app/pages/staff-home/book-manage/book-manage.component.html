@@ -1,4 +1,4 @@
-<p xmlns="http://www.w3.org/1999/html">book-manage works!</p>
+<h2 xmlns="http://www.w3.org/1999/html">图书录入管理</h2>
 <div class="bar-get-book-detail">
   <div class="get-book-detail">
     <form (ngSubmit)="autowireBookInfo()">
@@ -84,13 +84,18 @@
 
 <hr /> <!--水平分割线-->
 
+<br>
 <h3>已录入图书信息检索</h3>
-<div *ngFor="let book of bookInfo">
-  {{book.isbn}},
-  {{book.name}},
-  {{book.author}},
-  {{book.publisher}},
-  <button (click)="editBook(book.isbn)">edit</button>
-  <button (click)="delBook(book)">del</button>
+<button mat-raised-button (click)="getBooks()">获取书籍信息</button>
+<div *ngIf="bookInfo">
+  <div *ngFor="let book of bookInfo">
+    {{book.isbn}},
+    {{book.name}},
+    {{book.author}},
+    {{book.publisher}},
+    <button (click)="editBook(book.isbn)">edit</button>
+    <button (click)="delBook(book)">del</button>
 
+  </div>
 </div>
+
