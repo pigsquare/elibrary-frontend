@@ -1,27 +1,37 @@
-<div>请刷借阅证</div>
-<mat-form-field>
-  <mat-label>卡号</mat-label>
-  <label>
-    <input matInput [(ngModel)]="cardNo" type="text" (keyup.enter)="refreshData()">
-  </label>
-</mat-form-field>
-<button mat-raised-button (click)="refreshData()">查询信息</button>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
-<div *ngIf="userProfile">
-  姓名：{{userProfile.name}}, 余额：{{userProfile.balance}}
-  <button *ngIf="userProfile.balance<0" (click)="patOwe()">缴纳欠款</button>
-  <button (click)="recharge()">充值</button>
-  <div *ngIf="borrowRecordResponses">
-    <div *ngFor="let borrowRecord of borrowRecordResponses">
-      {{borrowRecord.bookName}}, {{borrowRecord.author}}, {{borrowRecord.barcode}}, {{borrowRecord.borrowTime}},
-      <button (click)="compensateBook(borrowRecord)">丢失赔书</button>
-      <button (click)="compensateMoney(borrowRecord.recordId)">仅赔款</button>
+<div class="panel panel-default">
+  <div class="panel-heading">丢书/损坏处理</div>
+  <div class="panel-body" style="text-align: center">
+    <div style="font-family:黑体;font-size: larger">请刷借阅证</div>
+    <mat-form-field>
+      <mat-label>卡号</mat-label>
+      <label>
+        <input matInput [(ngModel)]="cardNo" type="text" (keyup.enter)="refreshData()">
+      </label>
+    </mat-form-field>
+    <button mat-raised-button (click)="refreshData()" color="accent" style="margin-left: 20px">查询信息</button>
+
+    <div *ngIf="userProfile">
+      姓名：{{userProfile.name}}，余额：{{userProfile.balance.toFixed(2)}}元
+      <br>
+      <button *ngIf="userProfile.balance<0" (click)="patOwe()" mat-raised-button color="primary" style="margin: 10px auto">缴纳欠款</button><br>
+      <button (click)="recharge()" mat-raised-button color="primary">充值</button>
+      <div *ngIf="borrowRecordResponses">
+        <div *ngFor="let borrowRecord of borrowRecordResponses">
+          {{borrowRecord.bookName}}, {{borrowRecord.author}}, {{borrowRecord.barcode}}, {{borrowRecord.borrowTime}},
+          <button (click)="compensateBook(borrowRecord)" mat-raised-button color="primary">丢失赔书</button>
+          <button (click)="compensateMoney(borrowRecord.recordId)" mat-raised-button color="primary">仅赔款</button>
+        </div>
+      </div>
     </div>
+    <div hidden>
+      <div id="print-content">
+        <div style="font-size: 60%;">&nbsp;&nbsp;{{bookName}}</div>
+        <svg id="barcode"></svg>
+      </div>
+    </div>
+
   </div>
 </div>
-<div hidden>
-  <div id="print-content">
-    <div style="font-size: 60%;">&nbsp;&nbsp;{{bookName}}</div>
-    <svg id="barcode"></svg>
-  </div>
-</div>
+

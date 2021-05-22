@@ -1,4 +1,4 @@
-<p>book-manage works!</p>
+<p xmlns="http://www.w3.org/1999/html">book-manage works!</p>
 <div class="bar-get-book-detail">
   <div class="get-book-detail">
     <form (ngSubmit)="autowireBookInfo()">
@@ -61,7 +61,7 @@
     <div class="insert-book-detail">
       <mat-form-field>
         <mat-label>描述</mat-label>
-        <input [(ngModel)]="editingInfo.description" [ngModelOptions]="{standalone: true}" matInput type="text">
+        <textarea [(ngModel)]="editingInfo.description" [ngModelOptions]="{standalone: true}" matInput type="text" rows="5"></textarea>
       </mat-form-field>
       <mat-form-field>
         <mat-label>页面信息</mat-label>
