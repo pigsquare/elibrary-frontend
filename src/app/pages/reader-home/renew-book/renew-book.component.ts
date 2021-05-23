@@ -34,12 +34,14 @@ export class RenewBookComponent implements OnInit {
     });
   }
   renewBook(id: string): void{
-    this.borrowService.renewBook(id).subscribe(r => {
-      this.snackBar.open(r.message, undefined, {duration: 2000});
-      this.getData();
-    }, () => {
-      this.snackBar.open('不能续借', undefined, {duration: 2000});
-    });
+    if (confirm('确定续借该书？')){
+      this.borrowService.renewBook(id).subscribe(r => {
+        this.snackBar.open(r.message, undefined, {duration: 2000});
+        this.getData();
+      }, () => {
+        this.snackBar.open('不能续借', undefined, {duration: 2000});
+      });
+    }
     return;
   }
 

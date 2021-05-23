@@ -1,24 +1,50 @@
-<p>图书详情</p>
-<img src="{{bookInfo.imgUrl}}" alt="{{bookInfo.name}}">
-<div>{{bookInfo.name}}</div>
-<div>作者： {{bookInfo.author}}</div>
-<div>出版社：{{bookInfo.publisher}}</div>
-<div>出版时间：{{bookInfo.publishDate}}</div>
-<div>主题：{{bookInfo.keywords}}</div>
-<div>载体形态：{{bookInfo.pageInfo}}</div>
-<div>ISBN：{{bookInfo.isbn}}</div>
-<div>中图分类号：{{bookInfo.classifyCode}}</div>
-<div>索书号：{{bookInfo.indexNo}}</div>
-<div>内容提要：{{bookInfo.description}}</div>
-<div>价格：{{bookInfo.price}}</div>
-<div><button (click)="makeReservation(bookInfo)">预约</button></div>
-<div>复本/藏书记录</div>
-<div *ngIf="holdings">
-  编号，条码号，当前状态
-  <div *ngFor="let holding of holdings">
-    {{holding.id}},{{holding.barcode}},{{holding.status}}
+<div class="cards">
+  <div class="card active" id="overview">
+    <div class="card-content">
+      <div class="row">
+        <div class="left col">
+          <div class="contact">Book Info</div>
+          <h2><strong>{{bookInfo.name}}</strong></h2>
+          <div>作者： {{bookInfo.author}}</div>
+          <div>出版社：{{bookInfo.publisher}}</div>
+          <div>出版时间：{{bookInfo.publishDate}}</div>
+          <div>主题：{{bookInfo.keywords}}</div>
+          <div>载体形态：{{bookInfo.pageInfo}}</div>
+          <div>ISBN：{{bookInfo.isbn}}</div>
+          <div>中图分类号：{{bookInfo.classifyCode}}</div>
+          <div>索书号：{{bookInfo.indexNo}}</div>
+          <div>内容提要：{{bookInfo.description}}</div>
+          <div>价格：{{bookInfo.price.toFixed(2)}}元</div>
+          <div style="text-align: center">
+            <button mat-raised-button color="primary" style="margin-top: 30px;margin-right: 20px" (click)="makeReservation(bookInfo)">预约</button>
+            <button mat-raised-button color="primary" (click)="goBack()">返回</button>
+          </div>
+        </div>
+        <div class="right col" style="background: url({{bookInfo.imgUrl}}) center no-repeat;">
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<div>
-  <a (click)="goBack()">返回</a>
+
+
+<div class="card-item-table">
+  <div>
+    <div *ngIf="holdings">
+      <table class="mat-table" style="text-align: center;">
+        <caption style="margin-bottom: 10px"><strong>复本/藏书记录</strong></caption>
+        <tr>
+          <th>编号</th>
+          <th>条码号</th>
+          <th>当前状态</th>
+        </tr>
+        <tr *ngFor="let holding of holdings">
+          <td>{{holding.id}}</td>
+          <td>{{holding.barcode}}</td>
+          <td>{{holding.status}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>
+

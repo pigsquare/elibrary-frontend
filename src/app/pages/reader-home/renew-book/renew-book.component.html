@@ -1,6 +1,5 @@
-<p>renew-book works!</p>
 <p class="mat-h2">借阅记录</p>
-<div class="mat-h3">历史借阅记录</div>
+<div class="mat-h3">当前借阅的图书</div>
 <div>
   <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
     <ng-container matColumnDef="recordId">
@@ -12,7 +11,7 @@
       <td mat-cell *matCellDef="let element"> {{element.bookName}} </td>
     </ng-container>
     <ng-container matColumnDef="author">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> 作者 </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header  style="width: 100px"> 作者 </th>
       <td mat-cell *matCellDef="let element"> {{element.author}} </td>
     </ng-container>
     <ng-container matColumnDef="publisher">

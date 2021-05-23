@@ -1,13 +1,26 @@
-<p>borrow-manage works!</p>
-<div>
-  借还处理
+<div class="bookcard">
+  <div class="card-item-pic">
+    <div class="logo">
+      <img (click)="openBorrowDialog()" src="./assets/images/borrow.png"/>
+      <br>
+      <br>
+      <button mat-raised-button color="primary" style="font-size: 120%" (click)="openBorrowDialog()">
+        借书流程
+      </button>
+    </div>
+  </div>
+  <div class="card-item-pic">
+    <div class="logo">
+      <img (click)="openReturnDialog()" src="./assets/images/return_book.png"/>
+      <br>
+      <br>
+      <button mat-raised-button color="primary" style="font-size: 120%" (click)="openReturnDialog()">
+        还书流程
+      </button>
+    </div>
+  </div>
 </div>
-<button mat-button  (click)="openBorrowDialog()">
-  借书流程
-</button>
-<button mat-button  (click)="openReturnDialog()">
-  还书流程
-</button>
+
 
 
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-staff-home',
@@ -8,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class StaffHomeComponent implements OnInit {
   showFiller = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+  navTo(s: string): void{
+    this.router.navigateByUrl(s).then();
   }
 
 }

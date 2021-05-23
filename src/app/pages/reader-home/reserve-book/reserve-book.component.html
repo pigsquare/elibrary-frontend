@@ -1,1 +1,97 @@
-<p>reserve-book works!</p>
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="当前未完成的预约记录">
+    <div>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> 记录号 </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+        <ng-container matColumnDef="bookName">
+          <th mat-header-cell *matHeaderCellDef> 书名 </th>
+          <td mat-cell *matCellDef="let element"> {{element.bookName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="author">
+          <th mat-header-cell *matHeaderCellDef  style="width: 100px"> 作者 </th>
+          <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+        </ng-container>
+        <ng-container matColumnDef="publisher">
+          <th mat-header-cell *matHeaderCellDef> 出版社 </th>
+          <td mat-cell *matCellDef="let element"> {{element.publisher}} </td>
+        </ng-container>
+        <ng-container matColumnDef="submitTime">
+          <th mat-header-cell *matHeaderCellDef> 提交时间 </th>
+          <td mat-cell *matCellDef="let element"> {{element.submitTime}} </td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> 预约状态 </th>
+          <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container>
+        <ng-container matColumnDef="barcode">
+          <th mat-header-cell *matHeaderCellDef> 保留图书条码 </th>
+          <td mat-cell *matCellDef="let element"> {{element.barcode}} </td>
+        </ng-container>
+        <ng-container matColumnDef="lastDate">
+          <th mat-header-cell *matHeaderCellDef> 保留期限 </th>
+          <td mat-cell *matCellDef="let element"> {{element.lastDate}} </td>
+        </ng-container>
+        <ng-container matColumnDef="memo">
+          <th mat-header-cell *matHeaderCellDef> 备注 </th>
+          <td mat-cell *matCellDef="let element"> {{element.memo}} </td>
+        </ng-container>
+        <ng-container matColumnDef="option">
+          <th mat-header-cell *matHeaderCellDef> 操作 </th>
+          <td mat-cell *matCellDef="let element"> <button mat-raised-button (click)="cancelReservation(element)">取消预约</button> </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator #matPaginator [pageSizeOptions]="[5, 10, 20, 50]" showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-tab>
+  <mat-tab label="全部预约记录">
+    <div>
+      <table mat-table [dataSource]="dataSource2" matSort class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> 记录号 </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+        <ng-container matColumnDef="bookName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> 书名 </th>
+          <td mat-cell *matCellDef="let element"> {{element.bookName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="author">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header  style="width: 100px"> 作者 </th>
+          <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+        </ng-container>
+        <ng-container matColumnDef="publisher">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> 出版社 </th>
+          <td mat-cell *matCellDef="let element"> {{element.publisher}} </td>
+        </ng-container>
+        <ng-container matColumnDef="submitTime">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> 提交时间 </th>
+          <td mat-cell *matCellDef="let element"> {{element.submitTime}} </td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> 预约状态 </th>
+          <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container>
+        <ng-container matColumnDef="barcode">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> 保留图书条码 </th>
+          <td mat-cell *matCellDef="let element"> {{element.barcode}} </td>
+        </ng-container>
+        <ng-container matColumnDef="lastDate">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> 保留期限 </th>
+          <td mat-cell *matCellDef="let element"> {{element.lastDate}} </td>
+        </ng-container>
+        <ng-container matColumnDef="memo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> 备注 </th>
+          <td mat-cell *matCellDef="let element"> {{element.memo}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+      </table>
+      <mat-paginator #matPaginator2 [pageSizeOptions]="[10, 5, 20, 50]" showFirstLastButtons></mat-paginator>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+

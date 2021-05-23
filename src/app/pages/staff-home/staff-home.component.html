@@ -1,16 +1,56 @@
-<mat-toolbar>
-  <div class="button-row">
-    <span routerLink="/staff/borrow">借还处理</span>
-    <span routerLink="/staff/user_service">借书证服务</span>
-    <span routerLink="/staff/credit">损坏赔偿处理</span>
-    <span routerLink="/staff/book_manage">图书信息维护</span>
-    <span routerLink="/staff/holding">馆藏书目管理</span>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p class="mat-h3">功能菜单</p>
+    <div class="mat-list-item">
+      <button type="button" mat-button
+              (click)="drawer.close();navTo('/staff/borrow')">
+        <mat-icon>swap_horiz</mat-icon>
+        借还处理
+      </button>
+    </div>
+    <div class="mat-list-item">
+      <button type="button" mat-button
+              (click)="drawer.close();navTo('/staff/user_service')">
+        <mat-icon>credit_card</mat-icon>
+        借书证服务
+      </button>
+    </div>
+    <div class="mat-list-item">
+      <button type="button" mat-button
+              (click)="drawer.close();navTo('/staff/credit')">
+        <mat-icon>local_atm</mat-icon>
+        丢书/损坏处理
+      </button>
+    </div>
+    <div class="mat-list-item">
+      <button type="button" mat-button
+              (click)="drawer.close();navTo('/staff/book_manage')">
+        <mat-icon>assignment</mat-icon>
+        图书信息维护
+      </button>
+    </div>
+    <div class="mat-list-item">
+      <button type="button" mat-button
+              (click)="drawer.close();navTo('/staff/holding')">
+        <mat-icon>chrome_reader_mode</mat-icon>
+        馆藏书目管理
+      </button>
+    </div>
+  </mat-drawer>
+  <div class="example-sidenav-content">
+    <div>
+      <div class="mat-h1">
+        <button type="button" mat-button (click)="drawer.toggle();">
+          <mat-icon>view_headline</mat-icon>
+        </button>
+        员工管理页面
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div>
+      <br>
+      <router-outlet></router-outlet>
+    </div>
   </div>
-</mat-toolbar>
-
-<p>staff-home works!</p>
-
-<router-outlet></router-outlet>
-
-
+</mat-drawer-container>
 

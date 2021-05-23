@@ -1,39 +1,55 @@
-<p>person-info works!</p>
-<div *ngIf="userProfile">
-  <div>
-    用户名：{{userProfile.username}}
-  </div>
-  <div>
-    姓名：{{userProfile.name}}
-    <button mat-raised-button (click)="updateName()">修改姓名</button>
-  </div>
-  <div>
-    电话：{{userProfile.tel}}
-  </div>
-  <div>
-    借阅证号：{{userProfile.cardNo}}
-  </div>
-  <div>
-    邮箱：{{userProfile.email}}
-    <button mat-raised-button (click)="updateEmail()">修改邮箱</button>
-  </div>
-  <div>
-    信用分：{{userProfile.credit}}
-  </div>
-  <div>
-    账户余额：{{userProfile.balance}}
-  </div>
-  <div>
-    当前等级：{{userProfile.grade}}
-  </div>
-  <div>
-    最大借阅数：{{userProfile.maxHoldings}}
-  </div>
-  <div>
-    借阅期限：{{userProfile.maxBorrowTime}}
-  </div>
-  <div>
-    预约最长保留期限：{{userProfile.maxReserveTime}}
-  </div>
+<div class="bg">
+  <div class="cards">
 
+    <div class="card active" id="overview">
+      <div class="card-content">
+        <div class="row">
+          <div class="left col">
+            <div class="contact">Profile</div>
+            <div *ngIf="userProfile">
+              <h2><strong>{{userProfile.name}}</strong></h2>
+              <div>
+                用户名：{{userProfile.username}}
+              </div>
+              <div>
+                手机号：{{userProfile.tel}}
+              </div>
+              <div>
+                借阅证号：{{userProfile.cardNo}}
+              </div>
+              <div>
+                邮箱：{{userProfile.email}}
+              </div>
+              <div>
+                信用分：{{userProfile.credit}}
+              </div>
+              <div>
+                账户余额：{{userProfile.balance.toFixed(2)}}元
+              </div>
+              <div>
+                当前等级：{{userProfile.grade}}
+              </div>
+              <div>
+                最大借阅数：{{userProfile.maxHoldings}}本
+              </div>
+              <div>
+                借阅期限：{{userProfile.maxBorrowTime}}天
+              </div>
+              <div>
+                预约最长保留期限：{{userProfile.maxReserveTime}}天
+              </div>
+
+            </div>
+            <div style="text-align: center">
+              <button mat-raised-button (click)="updateName()" color="primary" style="margin-top: 30px;margin-right: 20px">修改姓名</button>
+              <button mat-raised-button (click)="updateEmail()" color="primary">修改邮箱</button>
+            </div>
+          </div>
+          <div class="right col">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+

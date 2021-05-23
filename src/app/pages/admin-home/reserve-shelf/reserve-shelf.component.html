@@ -1,0 +1,16 @@
+<h2>预约书架信息</h2>
+<div *ngIf="libraryReservationResponses">
+  <table style=" width: 100%; text-align: center">
+    <tr>
+      <th>编号</th><th>书名</th><th>isbn</th><th>条形码</th><th>读者姓名</th><th>保留期限</th>
+    </tr>
+    <tr *ngFor="let reservation of libraryReservationResponses">
+      <td>{{reservation.id}}</td>
+      <td>{{reservation.bookName}}</td>
+      <td>{{reservation.isbn}}</td>
+      <td>{{reservation.barcode}}</td>
+      <td>{{reservation.readerName}}</td>
+      <td>{{reservation.lastDate}}</td>
+    </tr>
+  </table>
+</div>

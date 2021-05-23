@@ -26,6 +26,8 @@ export class BookManageComponent implements OnInit {
   getData(): void{
     this.isbn = '';
     this.editingInfo = new BookInfo();
+  }
+  getBooks(): void{
     this.bookManageService.getBookList().subscribe(r => {
       this.bookInfo = r;
     });

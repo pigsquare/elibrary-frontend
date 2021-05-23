@@ -5,6 +5,7 @@ import {HoldingInfoResponse} from '../../models/holding/holding-info-response';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {IsbnInfoResponse} from '../../models/book/isbn-info-response';
 import {ReservationService} from '../../services/reservation.service';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-book-detail',
@@ -45,6 +46,7 @@ export class BookDetailComponent implements OnInit {
     if (confirm(`确定要预约《${book.name}》吗？`)){
       this.reservationService.makeReservation(book.isbn).subscribe(r => {
         this.snackBar.open(r.message, undefined, {duration: 2000});
+        this.getData();
       }, () => {
         this.snackBar.open('预约失败', undefined, {duration: 2000});
       });

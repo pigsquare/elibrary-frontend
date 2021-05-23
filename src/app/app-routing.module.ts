@@ -24,12 +24,13 @@ import {SearchBookComponent} from './pages/search-book/search-book.component';
 import {BookDetailComponent} from './pages/book-detail/book-detail.component';
 import {LibGuideComponent} from './pages/lib-guide/lib-guide.component';
 import {ValidateEmailComponent} from './pages/layout/dialog/validate-email/validate-email.component';
+import {VocationComponent} from './pages/admin-home/vocation/vocation.component';
+import {ReserveShelfComponent} from './pages/admin-home/reserve-shelf/reserve-shelf.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'reader', component: ReaderHomeComponent, canActivate: [ReaderGuard], canActivateChild: [ReaderGuard], children: [
-      {path: '', component: HomepageComponent},
       {path: 'record', component: BorrowRecordComponent},
       {path: 'renew', component: RenewBookComponent},
       {path: 'reserve', component: ReserveBookComponent},
@@ -37,7 +38,6 @@ const routes: Routes = [
     ]},
   {path: 'staff', component: StaffHomeComponent,
   canActivate: [ReaderGuard, StaffGuard], canActivateChild: [ReaderGuard, StaffGuard], children: [
-      {path: '', component: HomepageComponent},
       {path: 'user_service', component: UserManageComponent},
       {path: 'book_manage', component: BookManageComponent},
       {path: 'credit', component: CreditManageComponent},
@@ -47,9 +47,10 @@ const routes: Routes = [
     },
   {path: 'admin', component: AdminHomeComponent,
   canActivate: [ReaderGuard, AdminGuard], canActivateChild: [ReaderGuard, AdminGuard], children: [
-      {path: '', component: HomepageComponent},
       {path: 'staff_manage', component: StaffManageComponent},
       {path: 'reader_grade', component: ReaderGradeManageComponent},
+      {path: 'vocation', component: VocationComponent},
+      {path: 'reserve-shelf', component: ReserveShelfComponent},
     ]},
   {path: 'search', component: SearchBookComponent},
   {path: 'book/:isbn', component: BookDetailComponent},

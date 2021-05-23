@@ -1,0 +1,25 @@
+table{
+  width: 100%;
+}
+.mat-tab-group {
+  margin-bottom: 48px;
+}
+.container{
+  width: 100%;
+  display: table;
+  text-align: center;
+}
+.bookcard{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+.card-item-pic{
+  flex: 1;
+  width: 50%;
+  min-width: 50%;
+  max-width: 50%;
+  height:100%;
+}

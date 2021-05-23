@@ -1,6 +1,48 @@
-<p>reader-home works!</p>
-<a routerLink="/reader/record">借阅记录</a>
-<a routerLink="/reader/renew">图书续借</a>
-<a routerLink="/reader/reserve">图书预约</a>
-<a routerLink="/reader/info">个人中心</a>
-<router-outlet></router-outlet>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p class="mat-h3">功能菜单</p>
+    <div class="mat-list-item">
+      <button type="button" mat-button
+              (click)="drawer.close();navTo('/reader/record')">
+        <mat-icon>reorder</mat-icon>
+        借阅记录
+      </button>
+    </div>
+    <div class="mat-list-item">
+      <button type="button" mat-button
+              (click)="drawer.close();navTo('/reader/renew')">
+        <mat-icon>event</mat-icon>
+        当前在借图书/续借
+      </button>
+    </div>
+    <div class="mat-list-item">
+      <button type="button" mat-button
+              (click)="drawer.close();navTo('/reader/reserve')">
+        <mat-icon>date_range</mat-icon>
+        图书预约
+      </button>
+    </div>
+    <div class="mat-list-item">
+      <button type="button" mat-button
+              (click)="drawer.close();;navTo('/reader/info')">
+        <mat-icon>person</mat-icon>
+        个人中心
+      </button>
+    </div>
+  </mat-drawer>
+  <div class="example-sidenav-content">
+    <div>
+      <div class="mat-h1">
+        <button type="button" mat-button (click)="drawer.toggle();">
+          <mat-icon>view_headline</mat-icon>
+        </button>
+        我的图书馆
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div>
+      <br>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-drawer-container>

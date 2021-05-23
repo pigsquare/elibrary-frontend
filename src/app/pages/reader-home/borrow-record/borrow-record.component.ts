@@ -16,7 +16,7 @@ export class BorrowRecordComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   dataSource: MatTableDataSource<BorrowRecordResponse>;
   displayedColumns: string[] = ['recordId', 'bookName', 'author', 'publisher',
-  'borrowTime', 'lastReturnDate', 'extend', 'returnedTime', 'lateFee', 'memo'];
+  'borrowTime', 'lastReturnDate', 'extend', 'returnTime', 'lateFee', 'memo'];
   constructor(
     private borrowService: BorrowService
   ) { }
